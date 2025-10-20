@@ -25,6 +25,14 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+      {/* Logo and Brand Name */}
+      <div className="absolute top-8 left-8 z-20 flex items-center gap-3">
+        <img src="/logo.svg" alt="찾아검진 로고" className="h-12 w-12" />
+        <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
+          찾아검진
+        </span>
+      </div>
+
       {/* Background gradient circles */}
       <div className="absolute top-20 -left-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style={{backgroundColor: '#2F9A88'}}></div>
       <div className="absolute top-40 -right-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" style={{backgroundColor: '#4BBEAC'}}></div>
