@@ -67,12 +67,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 transition-colors" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
+                <a href="/privacy" className="text-gray-400 transition-colors" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
                   개인정보 처리방침
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 transition-colors" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
+                <a href="/terms" className="text-gray-400 transition-colors" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
                   이용약관
                 </a>
               </li>
