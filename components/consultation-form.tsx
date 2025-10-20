@@ -102,7 +102,7 @@ export default function ConsultationForm() {
       <div className="container mx-auto relative z-10 max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
               기업 상담 요청
             </span>
           </h2>
@@ -139,7 +139,12 @@ export default function ConsultationForm() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="홍길동"
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                      style={{
+                        '--tw-ring-color': '#4BBEAC'
+                      } as React.CSSProperties}
+                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
+                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
                       required
                       disabled={isSubmitting}
                     />
@@ -152,7 +157,12 @@ export default function ConsultationForm() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="(주)회사명"
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                      style={{
+                        '--tw-ring-color': '#4BBEAC'
+                      } as React.CSSProperties}
+                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
+                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
                       required
                       disabled={isSubmitting}
                     />
@@ -167,7 +177,12 @@ export default function ConsultationForm() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="contact@company.com"
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                    style={{
+                      '--tw-ring-color': '#4BBEAC'
+                    } as React.CSSProperties}
+                    onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
+                    onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
                     required
                     disabled={isSubmitting}
                   />
@@ -180,7 +195,12 @@ export default function ConsultationForm() {
                       name="expectedCount"
                       value={formData.expectedCount}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                      style={{
+                        '--tw-ring-color': '#4BBEAC'
+                      } as React.CSSProperties}
+                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
+                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
                       disabled={isSubmitting}
                     >
                       <option value="50명 미만">50명 미만</option>
@@ -196,7 +216,12 @@ export default function ConsultationForm() {
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                      style={{
+                        '--tw-ring-color': '#4BBEAC'
+                      } as React.CSSProperties}
+                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
+                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
                       disabled={isSubmitting}
                     >
                       <option value="1개월 이내">1개월 이내</option>
@@ -216,7 +241,12 @@ export default function ConsultationForm() {
                     onChange={handleChange}
                     placeholder="추가 문의사항이나 요구사항을 입력해주세요."
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none"
+                    style={{
+                      '--tw-ring-color': '#4BBEAC'
+                    } as React.CSSProperties}
+                    onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
+                    onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -225,7 +255,21 @@ export default function ConsultationForm() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 text-white py-4 text-lg font-semibold rounded-lg shadow-lg shadow-blue-700/50 transition-all"
+                    className="w-full disabled:bg-gray-600 text-white py-4 text-lg font-semibold rounded-lg shadow-lg transition-all"
+                    style={{
+                      backgroundColor: isSubmitting ? '#4B5563' : '#4BBEAC',
+                      boxShadow: isSubmitting ? 'none' : '0 10px 30px rgba(47, 154, 136, 0.3)'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isSubmitting) {
+                        e.currentTarget.style.backgroundColor = '#2F9A88'
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isSubmitting) {
+                        e.currentTarget.style.backgroundColor = '#4BBEAC'
+                      }
+                    }}
                   >
                     {isSubmitting ? '전송 중...' : '상담 요청하기'}
                   </Button>

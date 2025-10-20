@@ -88,9 +88,9 @@ export default function Modes() {
       description: "간호사/임상병리사 파견, 채혈·소변 채취·계측 진행",
       image: "/placeholder-hu8ng.png",
       details: [
-        { icon: <Users className="w-5 h-5 text-blue-400" />, text: "간호사/임상병리사 파견" },
-        { icon: <FlaskConical className="w-5 h-5 text-blue-400" />, text: "채혈·소변 채취·계측" },
-        { icon: <CheckCircle className="w-5 h-5 text-blue-400" />, text: "현장 안전관리 및 품질관리" },
+        { icon: <Users className="w-5 h-5" style={{color: '#4BBEAC'}} />, text: "간호사/임상병리사 파견" },
+        { icon: <FlaskConical className="w-5 h-5" style={{color: '#4BBEAC'}} />, text: "채혈·소변 채취·계측" },
+        { icon: <CheckCircle className="w-5 h-5" style={{color: '#4BBEAC'}} />, text: "현장 안전관리 및 품질관리" },
       ],
     },
     {
@@ -114,7 +114,7 @@ export default function Modes() {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">운영 절차</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">운영 절차</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             설계부터 결과 제공까지, 체계적인 방문형 건강검진 프로세스
@@ -135,7 +135,23 @@ export default function Modes() {
                 <TabsTrigger
                   key={mode.id}
                   value={mode.id}
-                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-200 rounded-md"
+                  className="data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-200 rounded-md"
+                  style={{
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    const target = e.currentTarget as HTMLElement
+                    if (!target.getAttribute('data-state')?.includes('active')) {
+                      target.style.backgroundColor = 'rgba(75, 190, 172, 0.1)'
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.currentTarget as HTMLElement
+                    if (!target.getAttribute('data-state')?.includes('active')) {
+                      target.style.backgroundColor = 'transparent'
+                    }
+                  }}
+                  data-active-style={{backgroundColor: '#4BBEAC'}}
                 >
                   <span className="flex items-center gap-2">
                     {mode.icon}
@@ -154,7 +170,7 @@ export default function Modes() {
                       <div className="h-96 flex flex-col justify-center">
                         <div className="text-center mb-12">
                           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
                               전체 프로세스
                             </span>
                           </h3>
@@ -178,7 +194,7 @@ export default function Modes() {
                             >
                               <Card className="bg-gray-800/50 border-gray-700 hover:bg-gray-800/70 transition-colors">
                                 <CardContent className="p-6 text-center">
-                                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{backgroundColor: '#4BBEAC'}}>
                                     <span className="text-white font-bold">{item.step}</span>
                                   </div>
                                   <h4 className="text-lg font-semibold mb-2 text-white">{item.title}</h4>
@@ -186,7 +202,7 @@ export default function Modes() {
                                 </CardContent>
                               </Card>
                               {index < 4 && (
-                                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-blue-600 transform -translate-y-1/2"></div>
+                                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 transform -translate-y-1/2" style={{backgroundColor: '#4BBEAC'}}></div>
                               )}
                             </motion.div>
                           ))}
@@ -214,7 +230,7 @@ export default function Modes() {
                                 ))}
                               </div>
                               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg shadow-blue-700/50">
+                                <button className="text-white px-6 py-3 rounded-lg font-medium shadow-lg" style={{backgroundColor: '#4BBEAC', boxShadow: '0 10px 30px rgba(47, 154, 136, 0.3)'}}>
                                   자세히 보기
                                 </button>
                               </motion.div>
@@ -340,24 +356,24 @@ export default function Modes() {
                             ))}
                           </div>
                           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg shadow-blue-700/50">
+                            <button className="text-white px-6 py-3 rounded-lg font-medium shadow-lg" style={{backgroundColor: '#4BBEAC', boxShadow: '0 10px 30px rgba(47, 154, 136, 0.3)'}}>
                               자세히 보기
                             </button>
                           </motion.div>
                         </div>
                         <div className="bg-gray-800 p-4 rounded-xl overflow-hidden h-96 flex flex-col justify-center">
-                          <div className="w-full h-64 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center relative overflow-hidden">
+                          <div className="w-full h-64 rounded-lg shadow-lg flex items-center justify-center relative overflow-hidden" style={{background: 'linear-gradient(to bottom right, #4BBEAC, #2F9A88)'}}>
                             <div className="absolute inset-0 bg-black/20"></div>
                             <div className="relative z-10 text-center text-white">
-                              <svg className="w-20 h-20 mx-auto mb-4 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-20 h-20 mx-auto mb-4" style={{color: '#E0F2EF'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                               </svg>
                               <h4 className="text-xl font-bold mb-2">현장 운영</h4>
-                              <p className="text-blue-100 text-sm">혈액 검사 현장</p>
+                              <p className="text-sm" style={{color: '#E0F2EF'}}>혈액 검사 현장</p>
                               <div className="mt-4 flex justify-center space-x-2">
-                                <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
-                                <div className="w-2 h-2 bg-blue-200 rounded-full"></div>
-                                <div className="w-2 h-2 bg-blue-100 rounded-full"></div>
+                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#C5E8E0'}}></div>
+                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#E0F2EF'}}></div>
+                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#F0F9F7'}}></div>
                               </div>
                             </div>
                           </div>

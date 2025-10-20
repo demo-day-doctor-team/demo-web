@@ -12,7 +12,7 @@ export default function Hero() {
 
   const buttonSpring = useSpring({
     scale: hovered ? 1.1 : 1,
-    boxShadow: hovered ? "0 0 25px 5px rgba(0, 80, 179, 0.6)" : "0 0 5px 2px rgba(0, 80, 179, 0.3)",
+    boxShadow: hovered ? "0 0 25px 5px rgba(75, 190, 172, 0.6)" : "0 0 5px 2px rgba(75, 190, 172, 0.3)",
     config: { tension: 300, friction: 10 },
   })
 
@@ -26,15 +26,15 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
       {/* Background gradient circles */}
-      <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-      <div className="absolute top-40 -right-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-20 left-40 w-72 h-72 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      <div className="absolute top-20 -left-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style={{backgroundColor: '#2F9A88'}}></div>
+      <div className="absolute top-40 -right-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" style={{backgroundColor: '#4BBEAC'}}></div>
+      <div className="absolute -bottom-20 left-40 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" style={{backgroundColor: '#1F7A6B'}}></div>
 
       <div className="container mx-auto grid lg:grid-cols-2 gap-8 items-center z-10">
         <div className="space-y-8 text-center lg:text-left">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             <span className="block">암 조기발견을 더 가볍게.</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
               액체생검 기반<br />
               방문형 건강검진
             </span>
@@ -47,7 +47,8 @@ export default function Hero() {
           </p>
           <animated.div style={buttonSpring} className="inline-block">
             <Button
-              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-6 rounded-full text-xl font-bold transition-all shadow-lg shadow-blue-700/50"
+              className="text-white px-8 py-6 rounded-full text-xl font-bold transition-all shadow-lg"
+              style={{backgroundColor: '#4BBEAC', boxShadow: '0 10px 40px rgba(47, 154, 136, 0.3)'}}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               onClick={scrollToConsultation}
