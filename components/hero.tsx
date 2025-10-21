@@ -30,10 +30,12 @@ export default function Hero() {
               찾아검진
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <a href="#features" className="hover:text-[#2F9A88] transition-colors">특징</a>
-            <a href="#process" className="hover:text-[#2F9A88] transition-colors">운영 절차</a>
-            <a href="#consultation-form" className="hover:text-[#2F9A88] transition-colors">상담 신청</a>
+          <div className="flex items-center gap-4 text-sm font-medium text-gray-600">
+            <a href="#features" className="hidden md:inline hover:text-[#2F9A88] transition-colors">특징</a>
+            <a href="#process" className="hidden md:inline hover:text-[#2F9A88] transition-colors">운영 절차</a>
+            <a href="#consultation-form" className="hidden md:inline hover:text-[#2F9A88] transition-colors">상담 신청</a>
+            <a href="/privacy" className="hover:text-[#2F9A88] transition-colors">개인정보처리방침</a>
+            <a href="/terms" className="hover:text-[#2F9A88] transition-colors">이용약관</a>
           </div>
         </div>
       </nav>
@@ -45,9 +47,9 @@ export default function Hero() {
 
       <div className="container mx-auto z-10 mt-20 flex flex-col items-center justify-center max-w-4xl">
         <div className="space-y-8 text-center">
-          {/* 큰 로고 */}
+          {/* 큰 로고 - 5배 더 크게 */}
           <div className="mb-8">
-            <img src="/logo.svg" alt="찾아검진 로고" className="h-32 w-32 md:h-40 md:w-40 mx-auto mb-6" />
+            <img src="/logo.svg" alt="찾아검진 로고" className="h-96 w-96 md:h-[500px] md:w-[500px] mx-auto mb-6" />
           </div>
           
           <div className="inline-block px-4 py-2 bg-[#E8F5F2] rounded-full text-[#2F9A88] text-sm font-semibold mb-4">
