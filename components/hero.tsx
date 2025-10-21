@@ -46,10 +46,10 @@ export default function Hero() {
       <div className="absolute -bottom-20 left-40 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000" style={{backgroundColor: '#2F9A88'}}></div>
 
       <div className="container mx-auto z-10 mt-20 flex flex-col items-center justify-center max-w-4xl">
-        <div className="space-y-8 text-center">
+        <div className="space-y-4 text-center">
           {/* 큰 로고 - 5배 더 크게 */}
-          <div className="mb-8">
-            <img src="/logo.svg" alt="찾아검진 로고" className="h-96 w-96 md:h-[500px] md:w-[500px] mx-auto mb-6" />
+          <div className="mb-1">
+            <img src="/logo.svg" alt="찾아검진 로고" className="h-96 w-96 md:h-[500px] md:w-[500px] mx-auto mb-1" />
           </div>
           
           <div className="inline-block px-4 py-2 bg-[#E8F5F2] rounded-full text-[#2F9A88] text-sm font-semibold mb-4">
