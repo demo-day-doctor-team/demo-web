@@ -27,13 +27,19 @@ export default function Features() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-black bg-opacity-60">
+    <section id="features" className="py-24 px-4 bg-gray-50">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-2 bg-white rounded-full text-[#2F9A88] text-sm font-semibold mb-4 shadow-sm">
+            주요 특징
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             왜 방문형 건강검진인가
-          </span>
-        </h2>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            직원 참여율을 높이고 업무 손실을 최소화하는 효율적인 건강검진
+          </p>
+        </div>
 
         <div
           ref={ref}
@@ -47,22 +53,24 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-gray-900 p-8 rounded-xl border border-gray-800 transition-all duration-300 hover:shadow-lg"
+              className="bg-white p-8 rounded-2xl border border-gray-200 transition-all duration-300 hover:shadow-xl group"
               style={{
                 transitionDelay: `${index * 0.1 + 0.2}s`,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#4BBEAC'
-                e.currentTarget.style.boxShadow = '0 10px 30px rgba(75, 190, 172, 0.2)'
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(47, 154, 136, 0.15)'
+                e.currentTarget.style.transform = 'translateY(-4px)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#374151'
+                e.currentTarget.style.borderColor = '#E5E7EB'
                 e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0)'
               }}
             >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <div className="mb-6 transform transition-transform group-hover:scale-110">{feature.icon}</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

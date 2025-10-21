@@ -97,6 +97,6 @@
 
 @layer components {
   [data-state="active"] {
-    background-color: #4BBEAC !important;
+    background-color: #2F9A88 !important;
   }
 }

@@ -96,17 +96,16 @@ export default function ConsultationForm() {
   }
 
   return (
-    <section id="consultation-form" className="py-20 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-80 z-0"></div>
-
+    <section id="consultation-form" className="py-24 px-4 relative bg-gray-50">
       <div className="container mx-auto relative z-10 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
-              기업 상담 요청
-            </span>
+          <div className="inline-block px-4 py-2 bg-white rounded-full text-[#2F9A88] text-sm font-semibold mb-4 shadow-sm">
+            무료 상담
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            기업 상담 요청
           </h2>
-          <p className="text-xl text-gray-300">맞춤형 건강검진 서비스 도입을 위한 상담을 신청해보세요</p>
+          <p className="text-lg text-gray-600">맞춤형 건강검진 서비스 도입을 위한 상담을 신청해보세요</p>
         </div>
 
         <motion.div
@@ -115,54 +114,66 @@ export default function ConsultationForm() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
+          <Card className="bg-white border-gray-200 shadow-xl">
             <CardContent className="p-8">
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
-                  <p className="text-green-400 text-center">상담 요청이 성공적으로 접수되었습니다! 곧 연락드리겠습니다.</p>
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-700 text-center font-medium">상담 요청이 성공적으로 접수되었습니다! 곧 연락드리겠습니다.</p>
                 </div>
               )}
               
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
-                  <p className="text-red-400 text-center">전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-700 text-center font-medium">전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">담당자 이름</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">담당자 이름</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="홍길동"
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                       style={{
-                        '--tw-ring-color': '#4BBEAC'
+                        '--tw-ring-color': '#2F9A88'
                       } as React.CSSProperties}
-                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
-                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = '#2F9A88'
+                        e.currentTarget.style.backgroundColor = '#ffffff'
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = '#D1D5DB'
+                        e.currentTarget.style.backgroundColor = '#F9FAFB'
+                      }}
                       required
                       disabled={isSubmitting}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">회사명</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">회사명</label>
                     <input
                       type="text"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="(주)회사명"
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                       style={{
-                        '--tw-ring-color': '#4BBEAC'
+                        '--tw-ring-color': '#2F9A88'
                       } as React.CSSProperties}
-                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
-                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = '#2F9A88'
+                        e.currentTarget.style.backgroundColor = '#ffffff'
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = '#D1D5DB'
+                        e.currentTarget.style.backgroundColor = '#F9FAFB'
+                      }}
                       required
                       disabled={isSubmitting}
                     />
@@ -170,19 +181,25 @@ export default function ConsultationForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">이메일</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">이메일</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="contact@company.com"
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                     style={{
-                      '--tw-ring-color': '#4BBEAC'
+                      '--tw-ring-color': '#2F9A88'
                     } as React.CSSProperties}
-                    onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#2F9A88'
+                      e.currentTarget.style.backgroundColor = '#ffffff'
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#D1D5DB'
+                      e.currentTarget.style.backgroundColor = '#F9FAFB'
+                    }}
                     required
                     disabled={isSubmitting}
                   />
@@ -190,17 +207,23 @@ export default function ConsultationForm() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">예상 인원</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">예상 인원</label>
                     <select
                       name="expectedCount"
                       value={formData.expectedCount}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                       style={{
-                        '--tw-ring-color': '#4BBEAC'
+                        '--tw-ring-color': '#2F9A88'
                       } as React.CSSProperties}
-                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
-                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = '#2F9A88'
+                        e.currentTarget.style.backgroundColor = '#ffffff'
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = '#D1D5DB'
+                        e.currentTarget.style.backgroundColor = '#F9FAFB'
+                      }}
                       disabled={isSubmitting}
                     >
                       <option value="50명 미만">50명 미만</option>
@@ -211,17 +234,23 @@ export default function ConsultationForm() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">희망 시작 시기</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">희망 시작 시기</label>
                     <select
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                       style={{
-                        '--tw-ring-color': '#4BBEAC'
+                        '--tw-ring-color': '#2F9A88'
                       } as React.CSSProperties}
-                      onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
-                      onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = '#2F9A88'
+                        e.currentTarget.style.backgroundColor = '#ffffff'
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = '#D1D5DB'
+                        e.currentTarget.style.backgroundColor = '#F9FAFB'
+                      }}
                       disabled={isSubmitting}
                     >
                       <option value="1개월 이내">1개월 이내</option>
@@ -234,19 +263,25 @@ export default function ConsultationForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">메시지</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">메시지</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="추가 문의사항이나 요구사항을 입력해주세요."
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent resize-none transition-all"
                     style={{
-                      '--tw-ring-color': '#4BBEAC'
+                      '--tw-ring-color': '#2F9A88'
                     } as React.CSSProperties}
-                    onFocus={(e) => e.currentTarget.style.borderColor = '#4BBEAC'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = '#4B5563'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#2F9A88'
+                      e.currentTarget.style.backgroundColor = '#ffffff'
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#D1D5DB'
+                      e.currentTarget.style.backgroundColor = '#F9FAFB'
+                    }}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -255,19 +290,18 @@ export default function ConsultationForm() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full disabled:bg-gray-600 text-white py-4 text-lg font-semibold rounded-lg shadow-lg transition-all"
+                    className="w-full disabled:bg-gray-400 text-white py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
                     style={{
-                      backgroundColor: isSubmitting ? '#4B5563' : '#4BBEAC',
-                      boxShadow: isSubmitting ? 'none' : '0 10px 30px rgba(47, 154, 136, 0.3)'
+                      backgroundColor: isSubmitting ? '#9CA3AF' : '#2F9A88'
                     }}
                     onMouseEnter={(e) => {
                       if (!isSubmitting) {
-                        e.currentTarget.style.backgroundColor = '#2F9A88'
+                        e.currentTarget.style.backgroundColor = '#1F7A6B'
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isSubmitting) {
-                        e.currentTarget.style.backgroundColor = '#4BBEAC'
+                        e.currentTarget.style.backgroundColor = '#2F9A88'
                       }
                     }}
                   >
@@ -275,7 +309,7 @@ export default function ConsultationForm() {
                   </Button>
                 </motion.div>
 
-                <p className="text-sm text-gray-400 text-center mt-4">
+                <p className="text-sm text-gray-500 text-center mt-4">
                   * 입력하신 정보는 상담 목적으로만 사용되며, 안전하게 보호됩니다.
                 </p>
               </form>

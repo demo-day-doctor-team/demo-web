@@ -108,15 +108,16 @@ export default function Modes() {
   ]
 
   return (
-    <section className="py-20 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-80 z-0"></div>
-
+    <section id="process" className="py-24 px-4 relative bg-white">
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">운영 절차</span>
+          <div className="inline-block px-4 py-2 bg-[#E8F5F2] rounded-full text-[#2F9A88] text-sm font-semibold mb-4">
+            운영 프로세스
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            운영 절차
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             설계부터 결과 제공까지, 체계적인 방문형 건강검진 프로세스
           </p>
         </div>
@@ -130,19 +131,19 @@ export default function Modes() {
           }}
         >
           <Tabs defaultValue="setup" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-8 bg-gray-800 p-1 rounded-lg">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-8 bg-gray-100 p-1 rounded-xl">
               {modes.map((mode) => (
                 <TabsTrigger
                   key={mode.id}
                   value={mode.id}
-                  className="data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-200 rounded-md"
+                  className="data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-200 rounded-lg text-gray-600"
                   style={{
                     backgroundColor: 'transparent'
                   }}
                   onMouseEnter={(e) => {
                     const target = e.currentTarget as HTMLElement
                     if (!target.getAttribute('data-state')?.includes('active')) {
-                      target.style.backgroundColor = 'rgba(75, 190, 172, 0.1)'
+                      target.style.backgroundColor = 'rgba(47, 154, 136, 0.1)'
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -151,7 +152,7 @@ export default function Modes() {
                       target.style.backgroundColor = 'transparent'
                     }
                   }}
-                  data-active-style={{backgroundColor: '#4BBEAC'}}
+                  data-active-style={{backgroundColor: '#2F9A88'}}
                 >
                   <span className="flex items-center gap-2">
                     {mode.icon}
@@ -167,14 +168,12 @@ export default function Modes() {
                   <CardContent className="p-0">
                     {mode.id === "setup" ? (
                       // 설계 탭일 때는 전체 프로세스만 표시
-                      <div className="h-96 flex flex-col justify-center">
+                      <div className="flex flex-col justify-center py-8">
                         <div className="text-center mb-12">
-                          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8DD4C5] to-[#2F9A88]">
-                              전체 프로세스
-                            </span>
+                          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                            전체 프로세스
                           </h3>
-                          <p className="text-gray-300">5단계로 구성된 체계적인 운영 절차</p>
+                          <p className="text-gray-600">5단계로 구성된 체계적인 운영 절차</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -192,17 +191,17 @@ export default function Modes() {
                               transition={{ delay: index * 0.1 }}
                               className="relative"
                             >
-                              <Card className="bg-gray-800/50 border-gray-700 hover:bg-gray-800/70 transition-colors">
+                              <Card className="bg-white border-gray-200 hover:border-[#4BBEAC] hover:shadow-lg transition-all">
                                 <CardContent className="p-6 text-center">
-                                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{backgroundColor: '#4BBEAC'}}>
+                                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{backgroundColor: '#2F9A88'}}>
                                     <span className="text-white font-bold">{item.step}</span>
                                   </div>
-                                  <h4 className="text-lg font-semibold mb-2 text-white">{item.title}</h4>
-                                  <p className="text-sm text-gray-300">{item.desc}</p>
+                                  <h4 className="text-lg font-semibold mb-2 text-gray-900">{item.title}</h4>
+                                  <p className="text-sm text-gray-600">{item.desc}</p>
                                 </CardContent>
                               </Card>
                               {index < 4 && (
-                                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 transform -translate-y-1/2" style={{backgroundColor: '#4BBEAC'}}></div>
+                                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 transform -translate-y-1/2" style={{backgroundColor: '#2F9A88'}}></div>
                               )}
                             </motion.div>
                           ))}
@@ -219,18 +218,18 @@ export default function Modes() {
                        // 결과 탭일 때는 상세 정보와 리포트 샘플을 함께 표시
                                                <div className="grid md:grid-cols-2 gap-8 items-center">
                             <div>
-                              <h3 className="text-2xl font-bold mb-4">{mode.title}</h3>
-                              <p className="text-gray-300 mb-6">{mode.description}</p>
+                              <h3 className="text-2xl font-bold mb-4 text-gray-900">{mode.title}</h3>
+                              <p className="text-gray-600 mb-6">{mode.description}</p>
                               <div className="space-y-3 mb-6">
                                 {mode.details.map((detail, index) => (
                                   <div key={index} className="flex items-center gap-3">
                                     {detail.icon}
-                                    <span className="text-gray-300">{detail.text}</span>
+                                    <span className="text-gray-700">{detail.text}</span>
                                   </div>
                                 ))}
                               </div>
                               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <button className="text-white px-6 py-3 rounded-lg font-medium shadow-lg" style={{backgroundColor: '#4BBEAC', boxShadow: '0 10px 30px rgba(47, 154, 136, 0.3)'}}>
+                                <button className="text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#2F9A88'}}>
                                   자세히 보기
                                 </button>
                               </motion.div>
@@ -239,15 +238,15 @@ export default function Modes() {
                            {/* 오른쪽: 리포트 샘플 (카드 넘기기) */}
                            <div className="relative">
                              <div className="text-center mb-4">
-                               <h4 className="text-lg font-semibold text-white">리포트 샘플</h4>
-                               <p className="text-gray-400 text-sm">화살표를 눌러 다른 결과를 확인하세요</p>
+                               <h4 className="text-lg font-semibold text-gray-900">리포트 샘플</h4>
+                               <p className="text-gray-600 text-sm">화살표를 눌러 다른 결과를 확인하세요</p>
                              </div>
                              
                              <div className="relative">
                                {/* 화살표 버튼들 */}
                                <button 
                                  onClick={() => setCurrentReportIndex(prev => prev === 0 ? reportSamples.length - 1 : prev - 1)}
-                                 className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800/80 hover:bg-gray-700/80 text-white p-2 rounded-full transition-colors"
+                                 className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-gray-100 text-gray-700 p-2 rounded-full transition-colors shadow-md"
                                >
                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -255,7 +254,7 @@ export default function Modes() {
                                </button>
                                <button 
                                  onClick={() => setCurrentReportIndex(prev => prev === reportSamples.length - 1 ? 0 : prev + 1)}
-                                 className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800/80 hover:bg-gray-700/80 text-white p-2 rounded-full transition-colors"
+                                 className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-gray-100 text-gray-700 p-2 rounded-full transition-colors shadow-md"
                                >
                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -269,17 +268,17 @@ export default function Modes() {
                                  animate={{ opacity: 1, x: 0 }}
                                  transition={{ duration: 0.3 }}
                                >
-                                 <Card className={`${reportSamples[currentReportIndex].bgColor} ${reportSamples[currentReportIndex].borderColor} border-2 h-96`}>
+                                 <Card className={`${reportSamples[currentReportIndex].bgColor} ${reportSamples[currentReportIndex].borderColor} border-2 h-96 bg-white`}>
                                    <CardContent className="p-6">
                                      <div className="text-center mb-6">
                                        <h4 className={`text-xl font-bold mb-2 ${reportSamples[currentReportIndex].scoreColor}`}>
                                          {reportSamples[currentReportIndex].status}
                                        </h4>
-                                       <p className="text-gray-300 text-sm">{reportSamples[currentReportIndex].description}</p>
+                                       <p className="text-gray-600 text-sm">{reportSamples[currentReportIndex].description}</p>
                                      </div>
                                      <div className="space-y-4">
                                        <div>
-                                         <h5 className="text-sm font-semibold text-white mb-2">암 시그널 점수</h5>
+                                         <h5 className="text-sm font-semibold text-gray-900 mb-2">암 시그널 점수</h5>
                                          <div className="h-24">
                                            <ResponsiveContainer width="100%" height="100%">
                                              <BarChart data={reportSamples[currentReportIndex].chartData}>
@@ -297,7 +296,7 @@ export default function Modes() {
                                          </div>
                                        </div>
                                        <div>
-                                         <h5 className="text-sm font-semibold text-white mb-2">
+                                         <h5 className="text-sm font-semibold text-gray-900 mb-2">
                                            {reportSamples[currentReportIndex].chartType === "area" ? "정상 범위" : "암종별 확률"}
                                          </h5>
                                          <div className="h-24">
@@ -345,35 +344,35 @@ export default function Modes() {
                       // 현장 운영 탭은 기존 레이아웃 유지
                       <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                          <h3 className="text-2xl font-bold mb-4">{mode.title}</h3>
-                          <p className="text-gray-300 mb-6">{mode.description}</p>
+                          <h3 className="text-2xl font-bold mb-4 text-gray-900">{mode.title}</h3>
+                          <p className="text-gray-600 mb-6">{mode.description}</p>
                           <div className="space-y-3 mb-6">
                             {mode.details.map((detail, index) => (
                               <div key={index} className="flex items-center gap-3">
                                 {detail.icon}
-                                <span className="text-gray-300">{detail.text}</span>
+                                <span className="text-gray-700">{detail.text}</span>
                               </div>
                             ))}
                           </div>
                           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <button className="text-white px-6 py-3 rounded-lg font-medium shadow-lg" style={{backgroundColor: '#4BBEAC', boxShadow: '0 10px 30px rgba(47, 154, 136, 0.3)'}}>
+                            <button className="text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow" style={{backgroundColor: '#2F9A88'}}>
                               자세히 보기
                             </button>
                           </motion.div>
                         </div>
-                        <div className="bg-gray-800 p-4 rounded-xl overflow-hidden h-96 flex flex-col justify-center">
-                          <div className="w-full h-64 rounded-lg shadow-lg flex items-center justify-center relative overflow-hidden" style={{background: 'linear-gradient(to bottom right, #4BBEAC, #2F9A88)'}}>
-                            <div className="absolute inset-0 bg-black/20"></div>
+                        <div className="bg-gradient-to-br from-[#E8F5F2] to-[#F0F9F7] p-4 rounded-xl overflow-hidden h-96 flex flex-col justify-center border border-gray-200">
+                          <div className="w-full h-64 rounded-lg shadow-md flex items-center justify-center relative overflow-hidden" style={{background: 'linear-gradient(to bottom right, #4BBEAC, #2F9A88)'}}>
+                            <div className="absolute inset-0 bg-white/10"></div>
                             <div className="relative z-10 text-center text-white">
-                              <svg className="w-20 h-20 mx-auto mb-4" style={{color: '#E0F2EF'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                               </svg>
                               <h4 className="text-xl font-bold mb-2">현장 운영</h4>
-                              <p className="text-sm" style={{color: '#E0F2EF'}}>혈액 검사 현장</p>
+                              <p className="text-sm">혈액 검사 현장</p>
                               <div className="mt-4 flex justify-center space-x-2">
-                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#C5E8E0'}}></div>
-                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#E0F2EF'}}></div>
-                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#F0F9F7'}}></div>
+                                <div className="w-2 h-2 rounded-full bg-white/80"></div>
+                                <div className="w-2 h-2 rounded-full bg-white/60"></div>
+                                <div className="w-2 h-2 rounded-full bg-white/40"></div>
                               </div>
                             </div>
                           </div>
