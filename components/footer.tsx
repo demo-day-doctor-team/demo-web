@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 py-12 px-4">햐햐
+    <footer className="bg-gray-900 py-12 px-4">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -15,7 +15,7 @@ export default function Footer() {
               </h2>
             </div>
             <p className="text-gray-400 mb-4 max-w-md leading-relaxed">
-              액체생검 기반 방문형 건강검진 서비스. 기업 사옥에서 간편하게 암 조기발견 검사를 받으세요.
+              액체생검 기반 방문형 건강검진 서비스. 집에서, 사무실에서, 원하는 곳 어디서나 간편하게 암 조기발견 검사를 받으세요.
             </p>
             <div className="flex space-x-4">
               <a href="mailto:contact@chajagumjin.co" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
@@ -44,13 +44,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#process" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
-                  기업 맞춤 패널
+                <a href="#pricing" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
+                  검진 패키지
                 </a>
               </li>
               <li>
-                <a href="#process" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
-                  데이터 분석
+                <a href="#testimonials" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
+                  검진 후기
                 </a>
               </li>
             </ul>
@@ -60,13 +60,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-white">지원</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#consultation-form" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
-                  고객 지원
+                <a href="#faq" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
+                  자주 묻는 질문
                 </a>
               </li>
               <li>
                 <a href="#consultation-form" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
-                  기업 상담
+                  검진 예약
                 </a>
               </li>
               <li>

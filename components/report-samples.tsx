@@ -109,7 +109,7 @@ export default function ReportSamples() {
 
           <div className="text-center mt-12">
             <p className="text-xs text-gray-500 max-w-3xl mx-auto">
-              * 화면은 예시이며 실제 해석은 의료 전문가 상담과 함께 제공됩니다.
+              * 화면은 예시이며 실제 해석은 전문 의료진 상담과 함께 제공됩니다.
             </p>
           </div>
         </div>
