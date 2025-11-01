@@ -20,9 +20,22 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden bg-gradient-to-b from-white via-[#FAFDFC] to-white pt-16 sm:pt-0">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden pt-16 sm:pt-0">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/testalize-me-X_lOGO8Jdw0-unsplash.jpg" 
+          alt="배경 이미지" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/60 to-gray-900/70"></div>
+        {/* Subtle accent overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2F9A88]/10 via-transparent to-[#4BBEAC]/10"></div>
+      </div>
+
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-20 bg-white/98 backdrop-blur-xl border-b-2 border-gray-200/60 shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-20 bg-white/95 backdrop-blur-xl border-b-2 border-gray-200/60 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between max-w-6xl">
           <div className="flex items-center gap-2.5 sm:gap-3">
             <img src="/logo.svg" alt="찾아검진 로고" className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9" />
@@ -40,39 +53,30 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* Warm background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F0F9F7]/50 via-white to-[#FAFDFC] pointer-events-none"></div>
-
-      <div className="container mx-auto z-10 mt-24 sm:mt-28 md:mt-32 mb-14 sm:mb-16 md:mb-20 flex flex-col items-center justify-center max-w-5xl">
-        <div className="space-y-7 sm:space-y-8 md:space-y-10 text-center w-full">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-gradient-to-r from-[#E8F5F2] to-[#F0F9F7] rounded-full border-2 border-[#2F9A88]/20 shadow-md">
-            <span className="text-xs sm:text-sm font-bold text-[#2F9A88]">개인 맞춤형 액체생검 건강검진</span>
-          </div>
-          
-          {/* Main Title */}
-          <div className="space-y-4 sm:space-y-5">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.05] text-gray-900 tracking-tight px-4">
+      <div className="container mx-auto relative z-10 mt-24 sm:mt-28 md:mt-32 mb-14 sm:mb-16 md:mb-20 flex flex-col items-center justify-center max-w-6xl">
+        <div className="space-y-10 sm:space-y-12 md:space-y-14 text-center w-full">
+          {/* Main Title - Professional and clear */}
+          <div className="space-y-5 sm:space-y-6">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white tracking-tight px-4 drop-shadow-2xl">
               <span className="block">암 조기발견을</span>
               <span className="block">더 가볍게.</span>
             </h1>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#2F9A88] via-[#3AA896] to-[#4BBEAC] tracking-tight px-4">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
               액체생검 기반
             </h2>
           </div>
           
-          {/* Description */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium px-4">
-            집에서, 사무실에서, 원하는 곳 어디서나<br className="hidden sm:inline" />
-            15분 채혈만으로 액체생검 포함 정밀 혈액검사와<br className="hidden sm:inline" />
-            <span className="font-semibold text-gray-800">기본 건강지표를 간편하게 확인하세요</span>
+          {/* Description - Clear and professional */}
+          <p className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed font-normal px-4 drop-shadow-xl">
+            집·회사 어디서든 15분 채혈로<br className="hidden sm:inline" />
+            암 조기발견 및 정밀 혈액 분석을 제공합니다.
           </p>
           
-          {/* CTA Button */}
-          <div className="pt-4 sm:pt-6 px-4">
+          {/* CTA Button - Professional and trustworthy */}
+          <div className="pt-6 sm:pt-8 px-4">
             <animated.div style={buttonSpring}>
               <Button
-                className="w-full sm:w-auto px-10 py-5 sm:py-4.5 bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] text-white rounded-xl text-base sm:text-lg font-bold transition-all duration-200 hover:from-[#1F7A6B] hover:to-[#2F9A88] hover:shadow-xl shadow-lg touch-manipulation"
+                className="w-full sm:w-auto px-10 py-5 sm:py-6 bg-[#2F9A88] text-white rounded-lg text-base sm:text-lg md:text-xl font-semibold transition-all duration-200 hover:bg-[#1F7A6B] hover:shadow-xl shadow-lg touch-manipulation"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 onClick={scrollToConsultation}
@@ -83,29 +87,29 @@ export default function Hero() {
             </animated.div>
           </div>
           
-          {/* Features */}
-          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 md:gap-8 justify-center text-sm sm:text-base text-gray-700 pt-5 sm:pt-6 px-4">
-            <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-              <div className="w-2 h-2 bg-[#2F9A88] rounded-full"></div>
+          {/* Features - Clean and minimal */}
+          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 md:gap-8 justify-center text-base sm:text-lg text-white/95 pt-6 sm:pt-8 pb-20 sm:pb-24 px-4">
+            <div className="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/30 px-6 py-3 rounded-lg shadow-lg">
+              <div className="w-2.5 h-2.5 bg-[#4BBEAC] rounded-full"></div>
               <span className="font-semibold">8대 암종 검사</span>
             </div>
-            <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-              <div className="w-2 h-2 bg-[#2F9A88] rounded-full"></div>
+            <div className="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/30 px-6 py-3 rounded-lg shadow-lg">
+              <div className="w-2.5 h-2.5 bg-[#4BBEAC] rounded-full"></div>
               <span className="font-semibold">15분 소요</span>
             </div>
-            <div className="flex items-center gap-2.5 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-              <div className="w-2 h-2 bg-[#2F9A88] rounded-full"></div>
+            <div className="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/30 px-6 py-3 rounded-lg shadow-lg">
+              <div className="w-2.5 h-2.5 bg-[#4BBEAC] rounded-full"></div>
               <span className="font-semibold">원하는 장소</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+      {/* Scroll indicator - Subtle */}
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-400 font-medium">스크롤</span>
-          <div className="w-px h-12 bg-gradient-to-b from-[#2F9A88] to-transparent"></div>
+          <span className="text-xs text-white/70 font-medium">스크롤</span>
+          <div className="w-px h-12 bg-gradient-to-b from-[#4BBEAC] to-transparent"></div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useInView } from "framer-motion"
 import { Calendar, MapPin, FileText, CheckCircle, Users, FlaskConical, FileBarChart, MessageCircle, Clock } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -11,6 +11,12 @@ export default function Modes() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const [currentReportIndex, setCurrentReportIndex] = useState(0)
+  const [activeTab, setActiveTab] = useState("booking")
+  const [tabHeight, setTabHeight] = useState<number | null>(null)
+  const bookingRef = useRef<HTMLDivElement>(null)
+  const onsiteRef = useRef<HTMLDivElement>(null)
+  const resultsRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const reportSamples = [
     { image: "/KakaoTalk_20251031_215234749_01.png", alt: "암 분석 결과 리포트" },
@@ -57,6 +63,58 @@ export default function Modes() {
     },
   ]
 
+  useEffect(() => {
+    const updateHeight = () => {
+      // 각 탭의 실제 높이를 측정하기 위해 TabsContent 요소를 직접 찾음
+      const tabsContentElements = document.querySelectorAll('[data-radix-tabs-content] > [role="tabpanel"]')
+      const heights: number[] = []
+      
+      tabsContentElements.forEach((element) => {
+        const el = element as HTMLElement
+        // 각 탭을 임시로 보이게 해서 높이 측정
+        const wasHidden = el.style.display === 'none' || el.style.visibility === 'hidden'
+        const originalStyle = {
+          display: el.style.display,
+          visibility: el.style.visibility,
+          position: el.style.position,
+        }
+        
+        el.style.display = 'block'
+        el.style.visibility = 'hidden'
+        el.style.position = 'absolute'
+        
+        if (el.offsetHeight > 0) {
+          heights.push(el.offsetHeight)
+        }
+        
+        // 원래 스타일 복원
+        if (wasHidden) {
+          el.style.display = originalStyle.display
+          el.style.visibility = originalStyle.visibility
+          el.style.position = originalStyle.position
+        } else {
+          el.style.display = ''
+          el.style.visibility = ''
+          el.style.position = ''
+        }
+      })
+
+      if (heights.length > 0) {
+        const maxHeight = Math.max(...heights)
+        setTabHeight(maxHeight)
+      }
+    }
+
+    // 초기 측정 및 탭 변경/리사이즈 시 재측정
+    const timer = setTimeout(updateHeight, 200)
+    window.addEventListener('resize', updateHeight)
+    
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', updateHeight)
+    }
+  }, [activeTab, currentReportIndex])
+
   return (
     <section id="process" className="py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 relative bg-white">
       <div className="container mx-auto relative z-10 max-w-6xl">
@@ -81,8 +139,8 @@ export default function Modes() {
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
           }}
         >
-          <Tabs defaultValue="booking" className="w-full bg-white">
-            <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-10 sm:mb-12 md:mb-14 bg-white p-1.5 sm:p-2 rounded-xl border-2 border-gray-200 shadow-md h-auto items-center">
+          <Tabs defaultValue="booking" value={activeTab} onValueChange={setActiveTab} className="w-full bg-white">
+            <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-6 sm:mb-8 bg-white p-1.5 sm:p-2 rounded-xl border-2 border-gray-200 shadow-md h-auto items-center">
               {modes.map((mode) => (
                 <TabsTrigger
                   key={mode.id}
@@ -113,12 +171,17 @@ export default function Modes() {
               ))}
             </TabsList>
 
+            <div ref={containerRef} className="relative">
             {modes.map((mode) => (
-              <TabsContent key={mode.id} value={mode.id} className="bg-white">
+              <TabsContent 
+                key={mode.id} 
+                value={mode.id} 
+                className="bg-white !mt-0"
+              >
                     {mode.id === "booking" ? (
                       // 예약 탭일 때는 전체 프로세스만 표시
-                      <div className="flex flex-col justify-center py-6 sm:py-8 bg-white">
-                        <div className="text-center mb-10 sm:mb-12 bg-white">
+                      <div ref={bookingRef} className="flex flex-col justify-center pt-0 pb-6 sm:pb-8 bg-white">
+                        <div className="text-center mb-10 sm:mb-12 bg-white -mt-2">
                           <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 text-gray-900 tracking-tight">
                             전체 검진 과정
                           </h3>
@@ -164,11 +227,11 @@ export default function Modes() {
                       </div>
                                          ) : mode.id === "results" ? (
                        // 결과 탭일 때는 상세 정보와 리포트 샘플을 함께 표시
-                                               <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center bg-white">
-                            <div className="order-2 md:order-1 bg-white">
+                                               <div ref={resultsRef} className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start bg-white pt-0 pb-6 sm:pb-8">
+                            <div className="order-2 md:order-1 bg-white -mt-2">
                               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-5 text-gray-900 tracking-tight">{mode.title}</h3>
                               <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-7 leading-relaxed font-normal">{mode.description}</p>
-                              <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
+                              <div className="space-y-4 sm:space-y-5">
                                 {mode.details.map((detail, index) => (
                                   <div key={index} className="flex items-start gap-4 sm:gap-5">
                                     <div className="mt-0.5 flex-shrink-0 scale-100">
@@ -178,14 +241,11 @@ export default function Modes() {
                                   </div>
                                 ))}
                               </div>
-                              <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-[#1F7A6B] hover:to-[#2F9A88] transition-all duration-200 touch-manipulation text-base">
-                                자세히 보기
-                              </button>
                             </div>
                            
                            {/* 오른쪽: 리포트 샘플 (이미지) */}
-                           <div className="relative mt-8 md:mt-0 order-1 md:order-2">
-                             <div className="relative max-w-[140px] sm:max-w-[180px] md:max-w-sm mx-auto scale-[0.55] sm:scale-[0.65] md:scale-50 origin-center">
+                           <div className="relative mt-8 md:mt-0 order-1 md:order-2 flex items-start">
+                             <div className="relative max-w-[200px] sm:max-w-[240px] md:max-w-[280px] mx-auto scale-[0.85] sm:scale-[0.90] md:scale-[0.95] origin-top">
                                {/* 네비게이션 버튼 */}
                                <button 
                                  onClick={() => setCurrentReportIndex(prev => prev === 0 ? reportSamples.length - 1 : prev - 1)}
@@ -247,11 +307,11 @@ export default function Modes() {
                          </div>
                     ) : (
                       // 방문 검진 탭
-                      <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start md:items-center bg-white">
-                        <div className="order-2 md:order-1 bg-white">
+                      <div ref={onsiteRef} className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start md:items-center bg-white pt-0 pb-6 sm:pb-8">
+                        <div className="order-2 md:order-1 bg-white -mt-2">
                           <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-5 sm:mb-6 text-gray-900 tracking-tight">{mode.title}</h3>
                           <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-7 sm:mb-8 leading-relaxed font-normal">{mode.description}</p>
-                          <div className="space-y-4 sm:space-y-5 mb-8 sm:mb-10">
+                          <div className="space-y-4 sm:space-y-5">
                             {mode.details.map((detail, index) => (
                               <div key={index} className="flex items-start gap-4 sm:gap-5">
                                 <div className="mt-0.5 flex-shrink-0 scale-100">
@@ -261,9 +321,6 @@ export default function Modes() {
                               </div>
                             ))}
                           </div>
-                          <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:from-[#1F7A6B] hover:to-[#2F9A88] transition-all duration-200 touch-manipulation text-base">
-                            자세히 보기
-                          </button>
                         </div>
                         <div className="bg-white rounded-2xl overflow-hidden h-96 flex flex-col justify-center border-2 border-gray-200 shadow-lg p-8 order-1 md:order-2">
                           <div className="w-full h-full rounded-lg flex items-center justify-center relative">
@@ -283,6 +340,7 @@ export default function Modes() {
                     )}
               </TabsContent>
             ))}
+            </div>
           </Tabs>
         </div>
       </div>

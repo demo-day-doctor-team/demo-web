@@ -14,12 +14,11 @@ export default function Pricing() {
   const packages = [
     {
       name: "기본 패키지",
-      price: "150,000",
+      price: "400,000",
       period: "원",
       description: "8대 암종 액체생검 기본 검사",
       features: [
         "8대 암종 액체생검",
-        "기본 건강지표 검사",
         "개인 맞춤 리포트 제공",
         "검사 결과 상담 제공",
       ],
@@ -28,12 +27,11 @@ export default function Pricing() {
     },
     {
       name: "프리미엄 패키지",
-      price: "250,000",
+      price: "450,000",
       period: "원",
       description: "기본 + 추가 정밀 검사",
       features: [
         "8대 암종 액체생검",
-        "기본 건강지표 검사",
         "추가 정밀 혈액검사",
         "개인 맞춤 리포트 제공",
         "전문의 결과 해석",
