@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
               개인정보 처리방침
             </span>
           </h1>
-          <p className="text-gray-600">최종 업데이트: 2025년 1월 20일</p>
+          <p className="text-gray-600">최종 업데이트: 2025년 10월 31일</p>
         </div>
 
         {/* Content */}
@@ -129,15 +129,20 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-2 text-gray-700">
               <p><strong className="text-[#2F9A88]">개인정보 보호책임자</strong></p>
-              <p>이메일: privacy@chajagumjin.co</p>
+              <p>소속부서: 고객지원팀</p>
+              <p>직책: 담당자</p>
               <p>전화번호: 02-1234-5678</p>
+              <p>이메일: privacy@chajagumjin.co</p>
             </div>
+            <p className="text-sm text-gray-600 mt-4">
+              * 개인정보 처리에 관한 문의사항이 있으시면 위 보호책임자에게 연락주시기 바랍니다.
+            </p>
           </section>
 
           <section className="mb-12 bg-gray-50 p-8 rounded-xl border border-gray-200">
             <h2 className="text-2xl font-bold mb-4 text-[#2F9A88]">8. 개인정보 처리방침 변경</h2>
             <p className="text-gray-700 leading-relaxed">
-              이 개인정보 처리방침은 2025년 1월 20일부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
+              이 개인정보 처리방침은 2025년 10월 31일부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
             </p>
           </section>
         </div>

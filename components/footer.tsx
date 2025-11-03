@@ -44,11 +44,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
-                  검진 패키지
-                </a>
-              </li>
-              <li>
                 <a href="#testimonials" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
                   검진 후기
                 </a>

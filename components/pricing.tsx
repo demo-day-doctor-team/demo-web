@@ -61,9 +61,6 @@ export default function Pricing() {
             transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
           }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#E8F5F2] to-[#F0F9F7] rounded-full border-2 border-[#2F9A88]/20 mb-5 sm:mb-6 shadow-sm">
-            <span className="text-xs font-semibold text-[#2F9A88] uppercase tracking-wider">가격 안내</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-5 text-gray-900 tracking-tight px-4">
             검진 패키지
           </h2>

@@ -1,7 +1,8 @@
 import Hero from "@/components/hero"
 import Features from "@/components/features"
+import LiquidBiopsyIntro from "@/components/liquid-biopsy-intro"
+import ExamItems from "@/components/exam-items"
 import Modes from "@/components/modes"
-import Pricing from "@/components/pricing"
 import Testimonials from "@/components/testimonials"
 import FAQ from "@/components/faq"
 import ConsultationForm from "@/components/consultation-form"
@@ -12,9 +13,10 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-900">
       <Hero />
       <Features />
+      <LiquidBiopsyIntro />
+      <ExamItems />
       <Modes />
-      <Pricing />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FAQ />
       <ConsultationForm />
       <Footer />

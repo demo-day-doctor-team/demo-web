@@ -46,7 +46,6 @@ export default function Hero() {
           <div className="flex items-center gap-4 sm:gap-5 md:gap-6 text-sm font-semibold text-gray-800">
             <a href="#features" className="hidden lg:inline hover:text-[#2F9A88] transition-colors duration-200">특징</a>
             <a href="#process" className="hidden lg:inline hover:text-[#2F9A88] transition-colors duration-200">검진 과정</a>
-            <a href="#pricing" className="hidden lg:inline hover:text-[#2F9A88] transition-colors duration-200">가격</a>
             <a href="#faq" className="hidden lg:inline hover:text-[#2F9A88] transition-colors duration-200">FAQ</a>
             <a href="#consultation-form" className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] text-white rounded-xl hover:shadow-lg hover:from-[#1F7A6B] hover:to-[#2F9A88] transition-all duration-200 text-xs sm:text-sm touch-manipulation font-semibold shadow-md">예약하기</a>
           </div>
@@ -76,7 +75,7 @@ export default function Hero() {
           <div className="pt-6 sm:pt-8 px-4">
             <animated.div style={buttonSpring}>
               <Button
-                className="w-full sm:w-auto px-10 py-5 sm:py-6 bg-[#2F9A88] text-white rounded-lg text-base sm:text-lg md:text-xl font-semibold transition-all duration-200 hover:bg-[#1F7A6B] hover:shadow-xl shadow-lg touch-manipulation"
+                className="w-full sm:w-auto px-10 py-5 sm:py-6 bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] text-white rounded-xl text-base sm:text-lg md:text-xl font-bold transition-all duration-200 hover:from-[#1F7A6B] hover:to-[#2F9A88] hover:shadow-2xl hover:scale-105 shadow-xl touch-manipulation border border-white/20"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 onClick={scrollToConsultation}

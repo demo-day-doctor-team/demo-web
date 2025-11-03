@@ -17,7 +17,7 @@ export default function TermsOfServicePage() {
               서비스 이용약관
             </span>
           </h1>
-          <p className="text-gray-600">최종 업데이트: 2025년 1월 20일</p>
+          <p className="text-gray-600">최종 업데이트: 2025년 10월 31일</p>
         </div>
 
         {/* Content */}
@@ -180,7 +180,7 @@ export default function TermsOfServicePage() {
           <section className="mb-12 bg-gray-50 p-8 rounded-xl border border-gray-200">
             <h2 className="text-2xl font-bold mb-4 text-[#2F9A88]">부칙</h2>
             <div className="space-y-4 text-gray-700">
-              <p>본 약관은 2025년 1월 20일부터 시행됩니다.</p>
+              <p>본 약관은 2025년 10월 31일부터 시행됩니다.</p>
             </div>
           </section>
         </div>

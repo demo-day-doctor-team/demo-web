@@ -9,6 +9,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import emailjs from '@emailjs/browser'
 import { useAnalytics } from "@/hooks/useAnalytics"
 
+// 환경 변수를 컴포넌트 외부에서 한 번만 로드
+// 주의: NEXT_PUBLIC_ 접두사가 붙은 변수는 클라이언트 번들에 포함됩니다.
+// - EmailJS Public Key: 공개 키이므로 노출되어도 안전합니다 (이름 그대로 Public Key)
+// - Service ID, Template ID: EmailJS에서 제공하는 공개 식별자이므로 노출되어도 안전합니다
+// - recipientEmail: EmailJS 템플릿의 'To Email' 필드에서 직접 설정하므로 코드에서 제거했습니다
+const EMAILJS_CONFIG = {
+  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
+}
+
 export default function ConsultationForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,6 +34,7 @@ export default function ConsultationForm() {
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState<string>('')
   const { trackFormSubmission, trackEvent } = useAnalytics()
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,19 +46,29 @@ export default function ConsultationForm() {
     trackFormSubmission('booking_request')
 
     try {
-      // EmailJS 설정 - 환경 변수에서 가져오기
-      // Gmail 대신 Outlook 사용을 권장합니다 (보안 문제 해결)
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      const recipientEmail = process.env.NEXT_PUBLIC_RECIPIENT_EMAIL
+      // EmailJS 설정 확인
+      const { serviceId, templateId, publicKey } = EMAILJS_CONFIG
 
-      if (!serviceId || !templateId || !publicKey || !recipientEmail) {
-        throw new Error('EmailJS 설정이 완료되지 않았습니다. 환경 변수를 확인해주세요.')
+      console.log('EmailJS 설정 확인:', {
+        serviceId: serviceId ? '✓' : '✗',
+        templateId: templateId ? '✓' : '✗',
+        publicKey: publicKey ? '✓' : '✗',
+        serviceIdValue: serviceId,
+        templateIdValue: templateId,
+        publicKeyValue: publicKey ? `${publicKey.substring(0, 10)}...` : '없음',
+      })
+
+      if (!serviceId || !templateId || !publicKey) {
+        const missing = []
+        if (!serviceId) missing.push('NEXT_PUBLIC_EMAILJS_SERVICE_ID')
+        if (!templateId) missing.push('NEXT_PUBLIC_EMAILJS_TEMPLATE_ID')
+        if (!publicKey) missing.push('NEXT_PUBLIC_EMAILJS_PUBLIC_KEY')
+        throw new Error(`환경 변수가 설정되지 않았습니다: ${missing.join(', ')}\n개발 서버를 재시작하거나 .env.local 파일을 확인해주세요.`)
       }
 
+      // recipientEmail은 EmailJS 템플릿의 'To Email' 필드에서 직접 설정하므로
+      // templateParams에서 제거했습니다 (보안상 더 안전함)
       const templateParams = {
-        to_email: recipientEmail,
         from_name: formData.name,
         from_phone: formData.phone,
         from_email: formData.email,
@@ -54,9 +76,11 @@ export default function ConsultationForm() {
         preferred_date: formData.preferredDate,
         preferred_time: formData.preferredTime,
         purpose: formData.purpose,
-        special_notes: formData.specialNotes,
+        special_notes: formData.specialNotes || '(없음)',
         reply_to: formData.email,
       }
+
+      console.log('EmailJS 전송 시도:', { serviceId, templateId, templateParams })
 
       const result = await emailjs.send(
         serviceId,
@@ -65,8 +89,11 @@ export default function ConsultationForm() {
         publicKey
       )
 
-      if (result.status === 200) {
+      console.log('EmailJS 전송 결과:', result)
+
+      if (result.status === 200 || result.text === 'OK') {
         setSubmitStatus('success')
+        setErrorMessage('')
         // 성공 이벤트 추적
         trackEvent('email_sent', 'engagement', 'booking_request_success')
         setFormData({
@@ -81,12 +108,25 @@ export default function ConsultationForm() {
         })
       } else {
         setSubmitStatus('error')
+        setErrorMessage(`전송 실패 (상태 코드: ${result.status})`)
         // 실패 이벤트 추적
         trackEvent('email_failed', 'engagement', 'booking_request_error')
       }
-    } catch (error) {
-      console.error('Email sending failed:', error)
+    } catch (error: any) {
+      console.error('EmailJS 전송 오류:', error)
       setSubmitStatus('error')
+      
+      // 더 자세한 오류 메시지
+      if (error?.text) {
+        setErrorMessage(`오류: ${error.text}`)
+      } else if (error?.message) {
+        setErrorMessage(`오류: ${error.message}`)
+      } else if (typeof error === 'string') {
+        setErrorMessage(`오류: ${error}`)
+      } else {
+        setErrorMessage('이메일 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
+      }
+      
       // 오류 이벤트 추적
       trackEvent('email_error', 'engagement', 'booking_request_error')
     } finally {
@@ -130,7 +170,12 @@ export default function ConsultationForm() {
               
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-700 text-center font-medium">전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
+                  <p className="text-red-700 text-center font-medium">
+                    {errorMessage || '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'}
+                  </p>
+                  <p className="text-red-600 text-center text-sm mt-2">
+                    개발자 도구 콘솔(F12)에서 상세 오류를 확인할 수 있습니다.
+                  </p>
                 </div>
               )}
 
