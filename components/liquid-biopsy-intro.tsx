@@ -70,7 +70,7 @@ export default function LiquidBiopsyIntro() {
     <section id="liquid-biopsy" className="py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 relative bg-gradient-to-b from-white via-[#FAFDFC] to-white">
       <div className="container mx-auto relative z-10 max-w-6xl">
         <div className="text-center mb-12 sm:mb-14 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#E8F5F2] to-[#F0F9F7] rounded-full border border-[#2F9A88]/20 mb-5 sm:mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#E8F5F2] to-[#F0F9F7] rounded-full border-2 border-[#2F9A88]/20 mb-5 sm:mb-6 shadow-sm">
             <span className="text-xs font-semibold text-[#2F9A88] uppercase tracking-wider">액체생검 기술</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-5 text-gray-900 tracking-tight px-4">
@@ -227,14 +227,14 @@ export default function LiquidBiopsyIntro() {
             {/* 네비게이션 버튼 */}
             <button
               onClick={prevCard}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border border-gray-200 z-10 backdrop-blur-sm hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border-2 border-gray-200 z-10 backdrop-blur-sm hover:scale-110"
               aria-label="이전 카드"
             >
               <ChevronLeft className="w-6 h-6 text-gray-700" />
             </button>
             <button
               onClick={nextCard}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border border-gray-200 z-10 backdrop-blur-sm hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border-2 border-gray-200 z-10 backdrop-blur-sm hover:scale-110"
               aria-label="다음 카드"
             >
               <ChevronRight className="w-6 h-6 text-gray-700" />

@@ -31,10 +31,10 @@ export default function Features() {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* 텍스트 섹션 - 왼쪽 */}
         <div className="mb-12 sm:mb-14 md:mb-16 max-w-md">
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-900 leading-relaxed font-normal mb-6">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-900 leading-relaxed font-normal mb-6 sm:mb-8">
             나이가 들수록 건강은 '그때그때 관리'가 아니라 미리 챙기는 습관이 되어야 합니다.
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
               액체생검으로 혈액 속 암 신호를 조기에 확인하고,
             </p>
@@ -86,9 +86,7 @@ export default function Features() {
               }}
             >
               <div className="mb-6 sm:mb-7 md:mb-8 w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] transition-all duration-300 group-hover:scale-110 group-hover:from-[#E8F5F2] group-hover:to-[#D4F1E8] shadow-sm">
-                <div className="transform transition-transform duration-300 scale-100">
-                  {feature.icon}
-                </div>
+                {feature.icon}
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold mb-3 sm:mb-4 text-gray-900 tracking-tight">{feature.title}</h3>
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-normal">{feature.description}</p>
