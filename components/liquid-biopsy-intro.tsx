@@ -16,7 +16,7 @@ export default function LiquidBiopsyIntro() {
       id: "intro",
       title: "액체생검이란?",
       description: "혈액 속 DNA 조각을 분석해 암의 초기 신호를 찾는 기술입니다. 내시경이나 방사선 노출 없이 한 번의 채혈로 여러 암을 함께 확인합니다.",
-      image: "/placeholder-liquid-biopsy-intro.jpg", // 이미지 경로를 여기에 추가하세요
+      image: "/nano-banana-2025-11-03T17-47-04.png",
       content: null,
     },
     {
@@ -98,7 +98,7 @@ export default function LiquidBiopsyIntro() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="w-full"
               >
-                <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[600px] sm:h-[650px] md:h-[700px]">
+                <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[450px] sm:h-[500px] md:h-[550px]">
                   <div className="grid md:grid-cols-2 gap-0 h-full">
                     {/* 이미지 영역 */}
                     <div className="relative h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden">
@@ -122,17 +122,17 @@ export default function LiquidBiopsyIntro() {
                     </div>
 
                     {/* 콘텐츠 영역 */}
-                    <CardContent className="p-8 sm:p-10 md:p-12 flex flex-col justify-center h-full overflow-y-auto">
-                      <div className="mb-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#2F9A88]/10 rounded-full mb-4">
+                    <CardContent className="p-8 sm:p-10 md:p-12 flex flex-col justify-center h-full">
+                      <div className="mb-4 sm:mb-5">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#2F9A88]/10 rounded-full mb-3 sm:mb-4">
                           <span className="text-xs font-semibold text-[#2F9A88]">
                             {currentIndex + 1} / {cards.length}
                           </span>
                         </div>
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 text-gray-900 tracking-tight">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 text-gray-900 tracking-tight">
                           {cards[currentIndex].title}
                         </h3>
-                        <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-5">
                           {cards[currentIndex].description}
                         </p>
                       </div>
@@ -140,33 +140,33 @@ export default function LiquidBiopsyIntro() {
                       {/* 카드별 콘텐츠 */}
                       {cards[currentIndex].id === "intro" && (
                         <div className="flex items-center gap-4 text-gray-700">
-                          <div className="flex-1 space-y-3">
-                            <div className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 text-[#2F9A88] mt-0.5 flex-shrink-0" />
-                              <span>내시경 불필요</span>
+                          <div className="flex-1 space-y-2">
+                            <div className="flex items-start gap-2.5">
+                              <CheckCircle className="w-4 h-4 text-[#2F9A88] mt-0.5 flex-shrink-0" />
+                              <span className="text-sm sm:text-base">내시경 불필요</span>
                             </div>
-                            <div className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 text-[#2F9A88] mt-0.5 flex-shrink-0" />
-                              <span>방사선 노출 없음</span>
+                            <div className="flex items-start gap-2.5">
+                              <CheckCircle className="w-4 h-4 text-[#2F9A88] mt-0.5 flex-shrink-0" />
+                              <span className="text-sm sm:text-base">방사선 노출 없음</span>
                             </div>
-                            <div className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 text-[#2F9A88] mt-0.5 flex-shrink-0" />
-                              <span>한 번의 채혈로 다중 암 검사</span>
+                            <div className="flex items-start gap-2.5">
+                              <CheckCircle className="w-4 h-4 text-[#2F9A88] mt-0.5 flex-shrink-0" />
+                              <span className="text-sm sm:text-base">한 번의 채혈로 다중 암 검사</span>
                             </div>
                           </div>
                         </div>
                       )}
 
                       {cards[currentIndex].id === "analysis" && cards[currentIndex].items && (
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                           {cards[currentIndex].items.map((item: any, idx: number) => (
-                            <div key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] flex items-center justify-center flex-shrink-0">
+                            <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] flex items-center justify-center flex-shrink-0">
                                 {item.icon}
                               </div>
                               <div>
-                                <h4 className="font-bold text-lg text-gray-900 mb-1">{item.title}</h4>
-                                <p className="text-gray-700">{item.desc}</p>
+                                <h4 className="font-bold text-base text-gray-900 mb-0.5">{item.title}</h4>
+                                <p className="text-sm text-gray-700">{item.desc}</p>
                               </div>
                             </div>
                           ))}
@@ -174,25 +174,25 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "results" && cards[currentIndex].items && (
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-3 gap-3">
                           {cards[currentIndex].items.map((item: any, idx: number) => (
                             <div 
                               key={idx} 
-                              className={`p-4 rounded-xl text-center border-2 transition-all ${
+                              className={`p-3 rounded-lg text-center border-2 transition-all ${
                                 item.color === 'green' ? 'border-green-200 bg-green-50/50' :
                                 item.color === 'amber' ? 'border-amber-200 bg-amber-50/50' :
                                 'border-red-200 bg-red-50/50'
                               }`}
                             >
-                              <div className="flex justify-center mb-2">{item.icon}</div>
-                              <div className={`font-bold text-lg mb-1 ${
+                              <div className="flex justify-center mb-1.5">{item.icon}</div>
+                              <div className={`font-bold text-base mb-1 ${
                                 item.color === 'green' ? 'text-green-700' :
                                 item.color === 'amber' ? 'text-amber-700' :
                                 'text-red-700'
                               }`}>
                                 {item.type}
                               </div>
-                              <p className="text-xs text-gray-600 mb-2">{item.desc}</p>
+                              <p className="text-xs text-gray-600 mb-1.5">{item.desc}</p>
                               <p className={`text-xs font-semibold ${
                                 item.color === 'green' ? 'text-green-800' :
                                 item.color === 'amber' ? 'text-amber-800' :
@@ -206,14 +206,14 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "reliability" && cards[currentIndex].stats && (
-                        <div className="space-y-4">
+                        <div className="grid grid-cols-1 gap-3">
                           {cards[currentIndex].stats.map((stat: any, idx: number) => (
-                            <div key={idx} className="bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] rounded-xl p-6 text-white">
-                              <div className="flex items-center justify-between mb-2">
-                                <span className="text-lg font-semibold">{stat.label}</span>
-                                <span className="text-3xl font-extrabold">{stat.value}</span>
+                            <div key={idx} className="bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] rounded-lg p-4 text-white">
+                              <div className="flex items-center justify-between mb-1">
+                                <span className="text-base font-semibold">{stat.label}</span>
+                                <span className="text-2xl font-extrabold">{stat.value}</span>
                               </div>
-                              <p className="text-sm text-white/90">{stat.desc}</p>
+                              <p className="text-xs text-white/90">{stat.desc}</p>
                             </div>
                           ))}
                         </div>

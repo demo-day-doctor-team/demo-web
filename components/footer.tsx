@@ -8,9 +8,13 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img src="/logo.svg" alt="찾아검진 로고" className="h-8 w-8" />
-              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4BBEAC] to-[#2F9A88]">
+            <div className="flex items-center gap-3 mb-4 group">
+              <img 
+                src="/logo.svg" 
+                alt="찾아검진 로고" 
+                className="h-14 w-14 sm:h-16 sm:w-16"
+              />
+              <h2 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4BBEAC] to-[#2F9A88] group-hover:from-[#2F9A88] group-hover:to-[#4BBEAC] transition-all">
                 찾아검진
               </h2>
             </div>
