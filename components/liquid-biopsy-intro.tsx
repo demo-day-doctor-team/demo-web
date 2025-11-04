@@ -101,7 +101,7 @@ export default function LiquidBiopsyIntro() {
                 <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[450px] sm:h-[500px] md:h-[550px] rounded-none">
                   <div className="flex flex-col md:grid md:grid-cols-2 gap-0 h-full">
                     {/* 이미지 영역 - 모바일: 높이 제한, 데스크톱: 전체 */}
-                    <div className="relative h-[180px] sm:h-[200px] md:h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden flex-shrink-0">
+                    <div className="relative h-[120px] sm:h-[140px] md:h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden flex-shrink-0">
                       {cards[currentIndex].image && !cards[currentIndex].image.includes('placeholder') ? (
                         <>
                           <img 
@@ -114,25 +114,25 @@ export default function LiquidBiopsyIntro() {
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="text-center text-white/80">
-                            <FileCheck className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-2 sm:mb-4 opacity-50" />
-                            <p className="text-xs sm:text-sm font-medium">이미지를 추가하세요</p>
+                            <FileCheck className="w-7 h-7 sm:w-8 sm:h-8 md:w-16 md:h-16 mx-auto mb-1 opacity-50" />
+                            <p className="text-xs font-medium">이미지를 추가하세요</p>
                           </div>
                         </div>
                       )}
                     </div>
 
                     {/* 콘텐츠 영역 - 모바일: 남은 공간, 데스크톱: 절반 */}
-                    <CardContent className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col flex-1 min-h-0 ${cards[currentIndex].id === "intro" ? "overflow-hidden" : "overflow-y-auto"}`}>
-                      <div className={cards[currentIndex].id === "intro" ? "mb-2 sm:mb-2.5 md:mb-3" : "mb-3 sm:mb-4"}>
-                        <div className={`inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[#2F9A88]/10 rounded-full ${cards[currentIndex].id === "intro" ? "mb-1.5 sm:mb-2" : "mb-2 sm:mb-3"}`}>
+                    <CardContent className={`p-2.5 sm:p-3 md:p-6 lg:p-8 xl:p-10 flex flex-col flex-1 min-h-0 overflow-hidden`}>
+                      <div className={cards[currentIndex].id === "intro" ? "mb-1 sm:mb-1.5 md:mb-3" : "mb-1.5 sm:mb-2 md:mb-4"}>
+                        <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2 py-0.5 sm:px-2.5 sm:py-1 bg-[#2F9A88]/10 rounded-full ${cards[currentIndex].id === "intro" ? "mb-1 sm:mb-1.5 md:mb-2" : "mb-1 sm:mb-1.5 md:mb-3"}`}>
                           <span className="text-xs font-semibold text-[#2F9A88]">
                             {currentIndex + 1} / {cards.length}
                           </span>
                         </div>
-                        <h3 className={`${cards[currentIndex].id === "intro" ? "text-xl sm:text-2xl md:text-3xl mb-1.5 sm:mb-2" : "text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"} font-extrabold text-gray-900 tracking-tight`}>
+                        <h3 className={`${cards[currentIndex].id === "intro" ? "text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-0.5 sm:mb-1 md:mb-2" : "text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-1 sm:mb-1.5 md:mb-3"} font-extrabold text-gray-900 tracking-tight`}>
                           {cards[currentIndex].title}
                         </h3>
-                        <p className={`${cards[currentIndex].id === "intro" ? "text-xs sm:text-sm md:text-base mb-2 sm:mb-2.5 md:mb-3" : "text-xs sm:text-sm md:text-base mb-3 sm:mb-4"} text-gray-700 leading-relaxed`}>
+                        <p className={`${cards[currentIndex].id === "intro" ? "text-xs sm:text-sm md:text-base mb-1 sm:mb-1.5 md:mb-3" : "text-xs sm:text-sm md:text-base mb-1.5 sm:mb-2 md:mb-4"} text-gray-700 leading-relaxed`}>
                           {cards[currentIndex].description}
                         </p>
                       </div>
@@ -158,15 +158,15 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "analysis" && cards[currentIndex].items && (
-                        <div className="space-y-2 sm:space-y-2.5">
+                        <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5">
                           {cards[currentIndex].items.map((item: any, idx: number) => (
-                            <div key={idx} className="flex items-start gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
-                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] flex items-center justify-center flex-shrink-0">
-                                {item.icon && typeof item.icon === 'object' ? React.cloneElement(item.icon, { className: 'w-4 h-4 sm:w-5 sm:h-5' }) : item.icon}
+                            <div key={idx} className="flex items-start gap-1.5 sm:gap-2 md:gap-2.5 p-1.5 sm:p-2 md:p-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                              <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-lg bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] flex items-center justify-center flex-shrink-0">
+                                {item.icon && typeof item.icon === 'object' ? React.cloneElement(item.icon, { className: 'w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5' }) : item.icon}
                               </div>
                               <div className="flex-1 min-w-0">
                                 <h4 className="font-bold text-xs sm:text-sm text-gray-900 mb-0.5">{item.title}</h4>
-                                <p className="text-xs text-gray-700">{item.desc}</p>
+                                <p className="text-xs text-gray-700 leading-tight">{item.desc}</p>
                               </div>
                             </div>
                           ))}
@@ -174,17 +174,17 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "results" && cards[currentIndex].items && (
-                        <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+                        <div className="grid grid-cols-3 gap-1.5 sm:gap-2 md:gap-2.5">
                           {cards[currentIndex].items.map((item: any, idx: number) => (
                             <div 
                               key={idx} 
-                              className={`p-2 sm:p-2.5 rounded-lg text-center border-2 transition-all ${
+                              className={`p-1.5 sm:p-2 md:p-2.5 rounded-lg text-center border-2 transition-all ${
                                 item.color === 'green' ? 'border-green-200 bg-green-50/50' :
                                 item.color === 'amber' ? 'border-amber-200 bg-amber-50/50' :
                                 'border-red-200 bg-red-50/50'
                               }`}
                             >
-                              <div className="flex justify-center mb-1">{item.icon && typeof item.icon === 'object' ? React.cloneElement(item.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6' }) : item.icon}</div>
+                              <div className="flex justify-center mb-0.5 sm:mb-1">{item.icon && typeof item.icon === 'object' ? React.cloneElement(item.icon, { className: 'w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6' }) : item.icon}</div>
                               <div className={`font-bold text-xs sm:text-sm mb-0.5 ${
                                 item.color === 'green' ? 'text-green-700' :
                                 item.color === 'amber' ? 'text-amber-700' :
@@ -192,7 +192,7 @@ export default function LiquidBiopsyIntro() {
                               }`}>
                                 {item.type}
                               </div>
-                              <p className="text-xs text-gray-600 mb-1">{item.desc}</p>
+                              <p className="text-xs text-gray-600 mb-0.5 sm:mb-1 leading-tight">{item.desc}</p>
                               <p className={`text-xs font-semibold leading-tight ${
                                 item.color === 'green' ? 'text-green-800' :
                                 item.color === 'amber' ? 'text-amber-800' :
@@ -206,16 +206,16 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "reliability" && cards[currentIndex].stats && (
-                        <div className="grid grid-cols-1 gap-2 sm:gap-2.5 w-full">
+                        <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-2.5 w-full">
                           {cards[currentIndex].stats.map((stat: any, idx: number) => (
-                            <div key={idx} className="bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] rounded-lg p-3 sm:p-3.5 text-white w-full">
+                            <div key={idx} className="bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] rounded-lg p-2.5 sm:p-3 md:p-3.5 text-white w-full">
                               <div className="flex items-center justify-between gap-2">
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center justify-between gap-2">
                                     <span className="text-xs sm:text-sm font-semibold">{stat.label}</span>
-                                    <span className="text-lg sm:text-xl font-extrabold flex-shrink-0">{stat.value}</span>
+                                    <span className="text-base sm:text-lg md:text-xl font-extrabold flex-shrink-0">{stat.value}</span>
                                   </div>
-                                  <p className="text-xs text-white/90 mt-0.5 sm:mt-1">{stat.desc}</p>
+                                  <p className="text-xs text-white/90 mt-0.5 sm:mt-1 leading-tight">{stat.desc}</p>
                                 </div>
                               </div>
                             </div>
