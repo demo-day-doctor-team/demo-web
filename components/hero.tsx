@@ -83,14 +83,14 @@ export default function Hero() {
                 더 가볍게
               </motion.span>
             </h1>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
               액체생검 기술로 빠르고 정확하게
               
             </h3>
           </div>
           
           {/* Description - Clear and professional */}
-          <p className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed font-normal px-4 drop-shadow-xl">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed font-normal px-4 drop-shadow-xl">
             집·회사 어디서든 15분 채혈로 <br className="hidden sm:inline" />
             암 조기발견 및 정밀 혈액 분석을 제공합니다.
           </p>

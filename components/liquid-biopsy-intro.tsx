@@ -74,7 +74,7 @@ export default function LiquidBiopsyIntro() {
             <span className="text-xs font-semibold text-[#2F9A88] uppercase tracking-wider">액체생검 기술</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-5 text-gray-900 tracking-tight px-4">
-            액체생검 완전 이해하기
+            액체생검 쉽게 이해하기
           </h2>
         </div>
 
