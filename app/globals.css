@@ -57,6 +57,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  html {
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 }
 
@@ -85,6 +91,15 @@
 
   .animate-blob {
     animation: blob 7s infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
   .scrollbar-hide {

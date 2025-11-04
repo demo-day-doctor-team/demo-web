@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
+import { ShieldCheck } from "lucide-react"
 
 export default function Modes() {
   const ref = useRef(null)
@@ -49,7 +50,12 @@ export default function Modes() {
                   transition={{ delay: index * 0.1 }}
                   className="relative"
                 >
-                  <Card className="bg-white border-2 border-gray-200 hover:border-[#2F9A88] hover:shadow-xl transition-all duration-300 group shadow-md">
+                  <Card className="bg-white border-2 border-gray-200 hover:border-[#2F9A88] hover:shadow-xl transition-all duration-300 group shadow-md relative">
+                    {index === 2 && (
+                      <div className="absolute top-3 right-3 z-10">
+                        <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-[#2F9A88]" />
+                      </div>
+                    )}
                     <CardContent className="p-6 sm:p-7 md:p-8 text-center">
                       <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-300 group-hover:scale-110 bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] shadow-lg">
                         <span className="text-white font-extrabold text-base">{item.step}</span>

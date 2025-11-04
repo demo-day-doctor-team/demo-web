@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useSpring, animated } from "@react-spring/web"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
 export default function Hero() {
@@ -62,10 +63,29 @@ export default function Hero() {
           <div className="space-y-5 sm:space-y-6">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white tracking-tight px-4 drop-shadow-2xl">
               <span className="block">암 조기발견을</span>
-              <span className="block">더 가볍게.</span>
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0, 
+                  filter: "blur(0px)"
+                }}
+                transition={{
+                  duration: 1,
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.3
+                }}
+                style={{
+                  animation: "float 3s ease-in-out infinite"
+                }}
+              >
+                더 가볍게.
+              </motion.span>
             </h1>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
-              액체생검 기반
+              액체생검 기술 도입
+              
             </h2>
           </div>
           
