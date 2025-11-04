@@ -36,10 +36,10 @@ export default function Modes() {
         >
           {/* 검진 프로세스 4단계 */}
           <div className="mb-16 sm:mb-20 md:mb-24">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-5 sm:gap-6 items-stretch">
               {[
                 { step: "01", title: "온라인 예약", desc: "날짜·시간·장소 선택, 동의서 및 문진 작성" },
-                { step: "02", title: "방문 검진", desc: "전문가가 지정 장소 방문, 15분 내 채혈 완료" },
+                { step: "02", title: "방문 검진", desc: "간호사와 의사가 지정 장소 방문, 15분 내 채혈 완료" },
                 { step: "03", title: "검사 분석", desc: "인증된 검사실 분석, 전문 의료진 결과 검토" },
                 { step: "04", title: "리포트 & 상담", desc: "개인 맞춤 리포트 제공, 필요시 전문 의료진 상담 연계" },
               ].map((item, index) => (
@@ -50,18 +50,18 @@ export default function Modes() {
                   transition={{ delay: index * 0.1 }}
                   className="relative"
                 >
-                  <Card className="bg-white border-2 border-gray-200 hover:border-[#2F9A88] hover:shadow-xl transition-all duration-300 group shadow-md relative">
+                  <Card className="bg-white border-2 border-gray-200 hover:border-[#2F9A88] hover:shadow-xl transition-all duration-300 group shadow-md relative h-full">
                     {index === 2 && (
                       <div className="absolute top-3 right-3 z-10">
                         <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-[#2F9A88]" />
                       </div>
                     )}
-                    <CardContent className="p-6 sm:p-7 md:p-8 text-center">
+                    <CardContent className="p-6 sm:p-7 md:p-8 text-center h-full flex flex-col">
                       <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-300 group-hover:scale-110 bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] shadow-lg">
                         <span className="text-white font-extrabold text-base">{item.step}</span>
                       </div>
                       <h4 className="text-lg sm:text-xl font-extrabold mb-3 text-gray-900 group-hover:text-[#2F9A88] transition-colors tracking-tight">{item.title}</h4>
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">{item.desc}</p>
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal flex-1">{item.desc}</p>
                     </CardContent>
                   </Card>
                   {index < 3 && (

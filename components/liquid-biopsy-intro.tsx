@@ -23,7 +23,7 @@ export default function LiquidBiopsyIntro() {
       id: "analysis",
       title: "무엇을 분석하나요?",
       description: "메틸레이션 패턴, 복제수 변화, DNA 절편화 등 암에서 흔히 보이는 신호를 NGS+AI로 통합 점수화합니다.",
-      image: "/placeholder-analysis.jpg", // 이미지 경로를 여기에 추가하세요
+      image: "/warren-umoh--qycBqByWIY-unsplash.jpg",
       items: [
         { title: "메틸레이션 패턴", desc: "DNA 메틸화 상태 분석", icon: <Search className="w-6 h-6" style={{color: '#2F9A88'}} /> },
         { title: "복제수 변화", desc: "유전자 복제수 변이 검출", icon: <TrendingUp className="w-6 h-6" style={{color: '#4BBEAC'}} /> },
@@ -34,7 +34,7 @@ export default function LiquidBiopsyIntro() {
       id: "results",
       title: "결과 해석",
       description: "액체생검 결과는 미검출, 의심, 검출 세 가지로 분류됩니다.",
-      image: "/placeholder-results.jpg", // 이미지 경로를 여기에 추가하세요
+      image: "/vitaly-gariev-8WYkI3cEZm8-unsplash.jpg",
       items: [
         { type: "미검출", icon: <CheckCircle className="w-8 h-8 text-green-500" />, desc: "현재 신호 없음", action: "정기검진 권장", color: "green" },
         { type: "의심", icon: <AlertCircle className="w-8 h-8 text-amber-500" />, desc: "일부 신호", action: "전문의 상담 및 권장 진단검사", color: "amber" },
@@ -45,7 +45,7 @@ export default function LiquidBiopsyIntro() {
       id: "reliability",
       title: "신뢰할 수 있나요?",
       description: "임상 평가에서 확인된 검증된 성능 지표입니다. (선별검사이며, 최종 진단은 별도 확진검사로 이뤄집니다.)",
-      image: "/placeholder-reliability.jpg", // 이미지 경로를 여기에 추가하세요
+      image: "/akram-huseyn-fKC9eWRnlGY-unsplash.jpg",
       stats: [
         { label: "특이도", value: "95.7%", desc: "건강한 사람을 정확히 판별" },
         { label: "민감도", value: "85.6%", desc: "암을 찾아내는 능력" },
@@ -129,10 +129,10 @@ export default function LiquidBiopsyIntro() {
                             {currentIndex + 1} / {cards.length}
                           </span>
                         </div>
-                        <h3 className={`${cards[currentIndex].id === "intro" ? "text-lg sm:text-xl md:text-2xl mb-1.5 sm:mb-2" : "text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"} font-extrabold text-gray-900 tracking-tight`}>
+                        <h3 className={`${cards[currentIndex].id === "intro" ? "text-xl sm:text-2xl md:text-3xl mb-1.5 sm:mb-2" : "text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"} font-extrabold text-gray-900 tracking-tight`}>
                           {cards[currentIndex].title}
                         </h3>
-                        <p className={`${cards[currentIndex].id === "intro" ? "text-xs sm:text-sm mb-2 sm:mb-2.5 md:mb-3" : "text-xs sm:text-sm md:text-base mb-3 sm:mb-4"} text-gray-700 leading-relaxed`}>
+                        <p className={`${cards[currentIndex].id === "intro" ? "text-xs sm:text-sm md:text-base mb-2 sm:mb-2.5 md:mb-3" : "text-xs sm:text-sm md:text-base mb-3 sm:mb-4"} text-gray-700 leading-relaxed`}>
                           {cards[currentIndex].description}
                         </p>
                       </div>
