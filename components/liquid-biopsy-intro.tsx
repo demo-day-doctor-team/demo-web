@@ -99,9 +99,9 @@ export default function LiquidBiopsyIntro() {
                 className="w-full"
               >
                 <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[450px] sm:h-[500px] md:h-[550px] rounded-none">
-                  <div className="grid md:grid-cols-2 gap-0 h-full">
-                    {/* 이미지 영역 */}
-                    <div className="relative h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden">
+                  <div className="flex flex-col md:grid md:grid-cols-2 gap-0 h-full">
+                    {/* 이미지 영역 - 모바일: 높이 제한, 데스크톱: 전체 */}
+                    <div className="relative h-[180px] sm:h-[200px] md:h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden flex-shrink-0">
                       {cards[currentIndex].image && !cards[currentIndex].image.includes('placeholder') ? (
                         <>
                           <img 
@@ -114,15 +114,15 @@ export default function LiquidBiopsyIntro() {
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="text-center text-white/80">
-                            <FileCheck className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-4 opacity-50" />
+                            <FileCheck className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-2 sm:mb-4 opacity-50" />
                             <p className="text-xs sm:text-sm font-medium">이미지를 추가하세요</p>
                           </div>
                         </div>
                       )}
                     </div>
 
-                    {/* 콘텐츠 영역 */}
-                    <CardContent className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col h-full ${cards[currentIndex].id === "intro" ? "overflow-hidden" : "overflow-y-auto"}`}>
+                    {/* 콘텐츠 영역 - 모바일: 남은 공간, 데스크톱: 절반 */}
+                    <CardContent className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col flex-1 min-h-0 ${cards[currentIndex].id === "intro" ? "overflow-hidden" : "overflow-y-auto"}`}>
                       <div className={cards[currentIndex].id === "intro" ? "mb-2 sm:mb-2.5 md:mb-3" : "mb-3 sm:mb-4"}>
                         <div className={`inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[#2F9A88]/10 rounded-full ${cards[currentIndex].id === "intro" ? "mb-1.5 sm:mb-2" : "mb-2 sm:mb-3"}`}>
                           <span className="text-xs font-semibold text-[#2F9A88]">

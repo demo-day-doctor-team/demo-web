@@ -83,7 +83,7 @@ export default function Hero() {
                 더 가볍게
               </motion.span>
             </h1>
-            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
               액체생검 기술로 빠르고 정확하게
               
             </h3>
