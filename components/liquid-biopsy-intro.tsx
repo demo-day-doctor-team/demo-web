@@ -100,8 +100,12 @@ export default function LiquidBiopsyIntro() {
               >
                 <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[450px] sm:h-[500px] md:h-[550px] rounded-none">
                   <div className="flex flex-col md:grid md:grid-cols-2 gap-0 h-full">
-                    {/* 이미지 영역 - 모바일: 높이 제한, 데스크톱: 전체 */}
-                    <div className="relative h-[120px] sm:h-[140px] md:h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden flex-shrink-0">
+                    {/* 이미지 영역 - 모바일: 카드별 유동적 높이, 데스크톱: 전체 */}
+                    <div className={`relative md:h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden flex-shrink-0 ${
+                      cards[currentIndex].id === "intro" ? "h-[180px] sm:h-[200px]" : // 콘텐츠 적음 - 이미지 크게
+                      cards[currentIndex].id === "results" ? "h-[140px] sm:h-[160px]" : // 콘텐츠 보통 - 이미지 중간
+                      "h-[100px] sm:h-[120px]" // analysis, reliability - 콘텐츠 많음 - 이미지 작게
+                    }`}>
                       {cards[currentIndex].image && !cards[currentIndex].image.includes('placeholder') ? (
                         <>
                           <img 
