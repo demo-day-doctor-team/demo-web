@@ -62,7 +62,7 @@ export default function Hero() {
           {/* Main Title - Professional and clear */}
           <div className="space-y-5 sm:space-y-6">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white tracking-tight px-4 drop-shadow-2xl">
-              <span className="block">암 조기발견을</span>
+              <span className="block">암 조기 발견을</span>
               <motion.span
                 className="block"
                 initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -80,18 +80,18 @@ export default function Hero() {
                   animation: "float 3s ease-in-out infinite"
                 }}
               >
-                더 가볍게.
+                더 가볍게
               </motion.span>
             </h1>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
-              액체생검 기술 도입
+            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#4BBEAC] tracking-tight px-4 drop-shadow-2xl">
+              액체생검 기술로 빠르고 정확하게
               
-            </h2>
+            </h3>
           </div>
           
           {/* Description - Clear and professional */}
           <p className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-4xl mx-auto leading-relaxed font-normal px-4 drop-shadow-xl">
-            집·회사 어디서든 15분 채혈로<br className="hidden sm:inline" />
+            집·회사 어디서든 15분 채혈로 <br className="hidden sm:inline" />
             암 조기발견 및 정밀 혈액 분석을 제공합니다.
           </p>
           
