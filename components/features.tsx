@@ -29,34 +29,39 @@ export default function Features() {
   return (
     <section id="features" className="py-20 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 bg-white relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
-        {/* 텍스트 섹션 - 왼쪽 */}
-        <div className="mb-12 sm:mb-14 md:mb-16 max-w-md">
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-900 leading-relaxed font-normal mb-6 sm:mb-8">
-            나이가 들수록 건강은 '그때그때 관리'가 아니라 미리 챙기는 습관이 되어야 합니다.
-          </p>
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
-              액체생검으로 혈액 속 암 신호를 조기에 확인하고,
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
-              이제는 결과를 한 번만 보고 지나치는 것이 아니라
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
-              앱에서 손쉽게 변화 추이를 살펴보세요.
-            </p>
+        {/* 텍스트와 이미지 컨테이너 - 모바일: 세로 배치, 데스크톱: 가로 배치 */}
+        <div className="relative mb-12 sm:mb-14 md:mb-16 lg:mb-20">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12">
+            {/* 텍스트 섹션 - 왼쪽 */}
+            <div className="flex-1 max-w-md lg:max-w-lg">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-900 leading-relaxed font-normal mb-6 sm:mb-8">
+                나이가 들수록 건강은 '그때그때 관리'가 아니라 미리 챙기는 습관이 되어야 합니다.
+              </p>
+              <div className="space-y-3 sm:space-y-4">
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
+                  액체생검으로 혈액 속 암 신호를 조기에 확인하고,
+                </p>
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
+                  이제는 결과를 한 번만 보고 지나치는 것이 아니라
+                </p>
+                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
+                  앱에서 손쉽게 변화 추이를 살펴보세요.
+                </p>
+              </div>
+            </div>
+
+            {/* 이미지 - 모바일: 아래, 데스크톱: 오른쪽 */}
+            <div className="flex-shrink-0 w-full lg:w-1/2 lg:max-w-2xl lg:absolute lg:top-0 lg:left-[50%] lg:z-0 py-8 sm:py-12 md:py-16 lg:scale-110">
+              <img 
+                src="/image-Photoroom (35).png" 
+                alt="찾아검진 특징" 
+                className="w-full h-auto object-contain"
+              />
+            </div>
           </div>
         </div>
 
-        {/* 이미지 - 오른쪽, 살짝 이동 */}
-        <div className="absolute top-0 left-[50%] w-1/2 max-w-2xl z-0 py-8 sm:py-12 md:py-16 scale-110">
-          <img 
-            src="/image-Photoroom (35).png" 
-            alt="찾아검진 특징" 
-            className="w-full h-auto object-contain"
-          />
-        </div>
-
-        <div className="text-center mb-14 sm:mb-16 md:mb-20 pt-[350px] sm:pt-[400px] md:pt-[450px] lg:pt-[500px]">
+        <div className="text-center mb-14 sm:mb-16 md:mb-20 lg:pt-[350px] pt-0">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#E8F5F2] to-[#F0F9F7] rounded-full border-2 border-[#2F9A88]/20 mb-5 sm:mb-6 shadow-sm">
             <span className="text-xs font-semibold text-[#2F9A88] uppercase tracking-wider">주요 특징</span>
           </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import { useInView } from "framer-motion"
 import { motion, AnimatePresence } from "framer-motion"
 import { FlaskConical, Search, FileCheck, Shield, TrendingUp, AlertCircle, CheckCircle, XCircle, ChevronLeft, ChevronRight } from "lucide-react"
@@ -88,7 +88,7 @@ export default function LiquidBiopsyIntro() {
           }}
         >
           {/* 카드 캐러셀 */}
-          <div className="relative overflow-hidden rounded-3xl">
+          <div className="relative overflow-visible pb-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -98,7 +98,7 @@ export default function LiquidBiopsyIntro() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="w-full"
               >
-                <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[450px] sm:h-[500px] md:h-[550px]">
+                <Card className="border-0 shadow-2xl overflow-hidden bg-white h-[450px] sm:h-[500px] md:h-[550px] rounded-none">
                   <div className="grid md:grid-cols-2 gap-0 h-full">
                     {/* 이미지 영역 */}
                     <div className="relative h-full bg-gradient-to-br from-[#2F9A88] to-[#4BBEAC] overflow-hidden">
@@ -114,59 +114,59 @@ export default function LiquidBiopsyIntro() {
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="text-center text-white/80">
-                            <FileCheck className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                            <p className="text-sm font-medium">이미지를 추가하세요</p>
+                            <FileCheck className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-4 opacity-50" />
+                            <p className="text-xs sm:text-sm font-medium">이미지를 추가하세요</p>
                           </div>
                         </div>
                       )}
                     </div>
 
                     {/* 콘텐츠 영역 */}
-                    <CardContent className="p-8 sm:p-10 md:p-12 flex flex-col justify-center h-full">
-                      <div className="mb-4 sm:mb-5">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#2F9A88]/10 rounded-full mb-3 sm:mb-4">
+                    <CardContent className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col h-full ${cards[currentIndex].id === "intro" ? "overflow-hidden" : "overflow-y-auto"}`}>
+                      <div className={cards[currentIndex].id === "intro" ? "mb-2 sm:mb-2.5 md:mb-3" : "mb-3 sm:mb-4"}>
+                        <div className={`inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[#2F9A88]/10 rounded-full ${cards[currentIndex].id === "intro" ? "mb-1.5 sm:mb-2" : "mb-2 sm:mb-3"}`}>
                           <span className="text-xs font-semibold text-[#2F9A88]">
                             {currentIndex + 1} / {cards.length}
                           </span>
                         </div>
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 text-gray-900 tracking-tight">
+                        <h3 className={`${cards[currentIndex].id === "intro" ? "text-lg sm:text-xl md:text-2xl mb-1.5 sm:mb-2" : "text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"} font-extrabold text-gray-900 tracking-tight`}>
                           {cards[currentIndex].title}
                         </h3>
-                        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-5">
+                        <p className={`${cards[currentIndex].id === "intro" ? "text-xs sm:text-sm mb-2 sm:mb-2.5 md:mb-3" : "text-xs sm:text-sm md:text-base mb-3 sm:mb-4"} text-gray-700 leading-relaxed`}>
                           {cards[currentIndex].description}
                         </p>
                       </div>
 
                       {/* 카드별 콘텐츠 */}
                       {cards[currentIndex].id === "intro" && (
-                        <div className="flex items-center gap-4 text-gray-700">
-                          <div className="flex-1 space-y-2">
-                            <div className="flex items-start gap-2.5">
-                              <CheckCircle className="w-4 h-4 text-[#2F9A88] mt-0.5 flex-shrink-0" />
-                              <span className="text-sm sm:text-base">내시경 불필요</span>
+                        <div className="flex items-start gap-2 sm:gap-3 text-gray-700 flex-1">
+                          <div className="flex-1 space-y-1 sm:space-y-1.5">
+                            <div className="flex items-start gap-1.5 sm:gap-2">
+                              <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#2F9A88] mt-0.5 flex-shrink-0" />
+                              <span className="text-xs sm:text-sm leading-tight">내시경 불필요</span>
                             </div>
-                            <div className="flex items-start gap-2.5">
-                              <CheckCircle className="w-4 h-4 text-[#2F9A88] mt-0.5 flex-shrink-0" />
-                              <span className="text-sm sm:text-base">방사선 노출 없음</span>
+                            <div className="flex items-start gap-1.5 sm:gap-2">
+                              <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#2F9A88] mt-0.5 flex-shrink-0" />
+                              <span className="text-xs sm:text-sm leading-tight">방사선 노출 없음</span>
                             </div>
-                            <div className="flex items-start gap-2.5">
-                              <CheckCircle className="w-4 h-4 text-[#2F9A88] mt-0.5 flex-shrink-0" />
-                              <span className="text-sm sm:text-base">한 번의 채혈로 다중 암 검사</span>
+                            <div className="flex items-start gap-1.5 sm:gap-2">
+                              <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#2F9A88] mt-0.5 flex-shrink-0" />
+                              <span className="text-xs sm:text-sm leading-tight">한 번의 채혈로 다중 암 검사</span>
                             </div>
                           </div>
                         </div>
                       )}
 
                       {cards[currentIndex].id === "analysis" && cards[currentIndex].items && (
-                        <div className="space-y-3">
+                        <div className="space-y-2 sm:space-y-2.5">
                           {cards[currentIndex].items.map((item: any, idx: number) => (
-                            <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
-                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] flex items-center justify-center flex-shrink-0">
-                                {item.icon}
+                            <div key={idx} className="flex items-start gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-[#F0F9F7] to-[#E8F5F2] flex items-center justify-center flex-shrink-0">
+                                {item.icon && typeof item.icon === 'object' ? React.cloneElement(item.icon, { className: 'w-4 h-4 sm:w-5 sm:h-5' }) : item.icon}
                               </div>
-                              <div>
-                                <h4 className="font-bold text-base text-gray-900 mb-0.5">{item.title}</h4>
-                                <p className="text-sm text-gray-700">{item.desc}</p>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="font-bold text-xs sm:text-sm text-gray-900 mb-0.5">{item.title}</h4>
+                                <p className="text-xs text-gray-700">{item.desc}</p>
                               </div>
                             </div>
                           ))}
@@ -174,26 +174,26 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "results" && cards[currentIndex].items && (
-                        <div className="grid grid-cols-3 gap-3">
+                        <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
                           {cards[currentIndex].items.map((item: any, idx: number) => (
                             <div 
                               key={idx} 
-                              className={`p-3 rounded-lg text-center border-2 transition-all ${
+                              className={`p-2 sm:p-2.5 rounded-lg text-center border-2 transition-all ${
                                 item.color === 'green' ? 'border-green-200 bg-green-50/50' :
                                 item.color === 'amber' ? 'border-amber-200 bg-amber-50/50' :
                                 'border-red-200 bg-red-50/50'
                               }`}
                             >
-                              <div className="flex justify-center mb-1.5">{item.icon}</div>
-                              <div className={`font-bold text-base mb-1 ${
+                              <div className="flex justify-center mb-1">{item.icon && typeof item.icon === 'object' ? React.cloneElement(item.icon, { className: 'w-5 h-5 sm:w-6 sm:h-6' }) : item.icon}</div>
+                              <div className={`font-bold text-xs sm:text-sm mb-0.5 ${
                                 item.color === 'green' ? 'text-green-700' :
                                 item.color === 'amber' ? 'text-amber-700' :
                                 'text-red-700'
                               }`}>
                                 {item.type}
                               </div>
-                              <p className="text-xs text-gray-600 mb-1.5">{item.desc}</p>
-                              <p className={`text-xs font-semibold ${
+                              <p className="text-xs text-gray-600 mb-1">{item.desc}</p>
+                              <p className={`text-xs font-semibold leading-tight ${
                                 item.color === 'green' ? 'text-green-800' :
                                 item.color === 'amber' ? 'text-amber-800' :
                                 'text-red-800'
@@ -206,14 +206,18 @@ export default function LiquidBiopsyIntro() {
                       )}
 
                       {cards[currentIndex].id === "reliability" && cards[currentIndex].stats && (
-                        <div className="grid grid-cols-1 gap-3">
+                        <div className="grid grid-cols-1 gap-2 sm:gap-2.5 w-full">
                           {cards[currentIndex].stats.map((stat: any, idx: number) => (
-                            <div key={idx} className="bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] rounded-lg p-4 text-white">
-                              <div className="flex items-center justify-between mb-1">
-                                <span className="text-base font-semibold">{stat.label}</span>
-                                <span className="text-2xl font-extrabold">{stat.value}</span>
+                            <div key={idx} className="bg-gradient-to-r from-[#2F9A88] to-[#4BBEAC] rounded-lg p-3 sm:p-3.5 text-white w-full">
+                              <div className="flex items-center justify-between gap-2">
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center justify-between gap-2">
+                                    <span className="text-xs sm:text-sm font-semibold">{stat.label}</span>
+                                    <span className="text-lg sm:text-xl font-extrabold flex-shrink-0">{stat.value}</span>
+                                  </div>
+                                  <p className="text-xs text-white/90 mt-0.5 sm:mt-1">{stat.desc}</p>
+                                </div>
                               </div>
-                              <p className="text-xs text-white/90">{stat.desc}</p>
                             </div>
                           ))}
                         </div>
@@ -227,17 +231,17 @@ export default function LiquidBiopsyIntro() {
             {/* 네비게이션 버튼 */}
             <button
               onClick={prevCard}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border-2 border-gray-200 z-10 backdrop-blur-sm hover:scale-110"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border-2 border-gray-200 z-20 backdrop-blur-sm hover:scale-110"
               aria-label="이전 카드"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-700" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
             </button>
             <button
               onClick={nextCard}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border-2 border-gray-200 z-10 backdrop-blur-sm hover:scale-110"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 border-2 border-gray-200 z-20 backdrop-blur-sm hover:scale-110"
               aria-label="다음 카드"
             >
-              <ChevronRight className="w-6 h-6 text-gray-700" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
             </button>
           </div>
 
