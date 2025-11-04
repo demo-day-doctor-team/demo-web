@@ -130,9 +130,7 @@ export default function PrivacyPolicyPage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200 space-y-2 text-gray-700">
               <p><strong className="text-[#2F9A88]">개인정보 보호책임자</strong></p>
               <p>소속부서: 고객지원팀</p>
-              <p>직책: 담당자</p>
-              <p>전화번호: 02-1234-5678</p>
-              <p>이메일: privacy@chajagumjin.co</p>
+              <p>이메일: chajagumjin@gmail.com</p>
             </div>
             <p className="text-sm text-gray-600 mt-4">
               * 개인정보 처리에 관한 문의사항이 있으시면 위 보호책임자에게 연락주시기 바랍니다.
