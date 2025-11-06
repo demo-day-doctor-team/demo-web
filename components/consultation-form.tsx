@@ -13,11 +13,12 @@ import { useAnalytics } from "@/hooks/useAnalytics"
 // 주의: NEXT_PUBLIC_ 접두사가 붙은 변수는 클라이언트 번들에 포함됩니다.
 // - EmailJS Public Key: 공개 키이므로 노출되어도 안전합니다 (이름 그대로 Public Key)
 // - Service ID, Template ID: EmailJS에서 제공하는 공개 식별자이므로 노출되어도 안전합니다
-// - recipientEmail: EmailJS 템플릿의 'To Email' 필드에서 직접 설정하므로 코드에서 제거했습니다
+// - recipientEmail: 받을 이메일 주소 (기본값: yeobg1022@gmail.com)
 const EMAILJS_CONFIG = {
   serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
   templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
   publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
+  recipientEmail: process.env.NEXT_PUBLIC_RECIPIENT_EMAIL || 'yeobg1022@gmail.com',
 }
 
 export default function ConsultationForm() {
@@ -66,8 +67,7 @@ export default function ConsultationForm() {
         throw new Error(`환경 변수가 설정되지 않았습니다: ${missing.join(', ')}\n개발 서버를 재시작하거나 .env.local 파일을 확인해주세요.`)
       }
 
-      // recipientEmail은 EmailJS 템플릿의 'To Email' 필드에서 직접 설정하므로
-      // templateParams에서 제거했습니다 (보안상 더 안전함)
+      // EmailJS 템플릿에서 사용할 파라미터 설정
       const templateParams = {
         from_name: formData.name,
         from_phone: formData.phone,
@@ -78,6 +78,7 @@ export default function ConsultationForm() {
         purpose: formData.purpose,
         special_notes: formData.specialNotes || '(없음)',
         reply_to: formData.email,
+        to_email: EMAILJS_CONFIG.recipientEmail,
       }
 
       console.log('EmailJS 전송 시도:', { serviceId, templateId, templateParams })
