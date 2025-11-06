@@ -20,55 +20,119 @@
 이 이메일에 답장하시면 {{from_email}}로 전송됩니다.
 ```
 
-## HTML 버전
+## HTML 버전 (폼 양식 그대로 보이는 버전)
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>새로운 검진 예약 요청</title>
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-    <h2 style="color: #2F9A88;">새로운 검진 예약 요청이 접수되었습니다</h2>
-    
-    <table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
-        <tr style="background-color: #f8f9fa;">
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; width: 150px;">이름</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{from_name}}</td>
-        </tr>
-        <tr>
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">연락처</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{from_phone}}</td>
-        </tr>
-        <tr style="background-color: #f8f9fa;">
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">이메일</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{from_email}}</td>
-        </tr>
-        <tr>
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">검진 희망 지역</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{location}}</td>
-        </tr>
-        <tr style="background-color: #f8f9fa;">
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">검진 희망 날짜</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{preferred_date}}</td>
-        </tr>
-        <tr>
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">검진 희망 시간</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{preferred_time}}</td>
-        </tr>
-        <tr style="background-color: #f8f9fa;">
-            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">검진 목적</td>
-            <td style="padding: 12px; border: 1px solid #ddd;">{{purpose}}</td>
-        </tr>
-    </table>
-    
-    <h3 style="color: #2F9A88;">특이사항 및 요청사항:</h3>
-    <div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #2F9A88; margin: 20px 0;">
-        <p style="margin: 0; white-space: pre-wrap;">{{special_notes}}</p>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f9fafb;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 40px 20px;">
+        <!-- 헤더 -->
+        <div style="text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #e5e7eb;">
+            <h1 style="color: #2F9A88; font-size: 28px; font-weight: 700; margin: 0 0 10px 0;">새로운 검진 예약 요청</h1>
+            <p style="color: #6b7280; font-size: 14px; margin: 0;">찾아검진 예약 시스템</p>
+        </div>
+
+        <!-- 폼 필드 스타일로 표시 -->
+        <div style="background-color: #ffffff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 30px; margin-bottom: 20px;">
+            
+            <!-- 이름 -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                    이름 <span style="color: #ef4444;">*</span>
+                </label>
+                <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                    {{from_name}}
+                </div>
+            </div>
+
+            <!-- 연락처와 이메일 (2열) -->
+            <div style="display: table; width: 100%; margin-bottom: 24px;">
+                <div style="display: table-cell; width: 48%; padding-right: 2%; vertical-align: top;">
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                        연락처 <span style="color: #ef4444;">*</span>
+                    </label>
+                    <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                        {{from_phone}}
+                    </div>
+                </div>
+                <div style="display: table-cell; width: 48%; padding-left: 2%; vertical-align: top;">
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                        이메일 <span style="color: #ef4444;">*</span>
+                    </label>
+                    <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                        {{from_email}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 검진 희망 지역 -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                    검진 희망 지역 <span style="color: #ef4444;">*</span>
+                </label>
+                <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                    {{location}}
+                </div>
+            </div>
+
+            <!-- 검진 희망 날짜와 시간 (2열) -->
+            <div style="display: table; width: 100%; margin-bottom: 24px;">
+                <div style="display: table-cell; width: 48%; padding-right: 2%; vertical-align: top;">
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                        검진 희망 날짜 <span style="color: #ef4444;">*</span>
+                    </label>
+                    <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                        {{preferred_date}}
+                    </div>
+                </div>
+                <div style="display: table-cell; width: 48%; padding-left: 2%; vertical-align: top;">
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                        검진 희망 시간 <span style="color: #ef4444;">*</span>
+                    </label>
+                    <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                        {{preferred_time}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 검진 목적 -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                    검진 목적
+                </label>
+                <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px;">
+                    {{purpose}}
+                </div>
+            </div>
+
+            <!-- 특이사항 및 요청사항 -->
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                    특이사항 및 요청사항
+                </label>
+                <div style="background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; color: #111827; font-size: 16px; min-height: 80px; white-space: pre-wrap;">
+                    {{special_notes}}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid #e5e7eb; margin-top: 30px;">
+            <p style="color: #6b7280; font-size: 14px; margin: 0 0 10px 0;">
+                이 이메일에 답장하시면 <strong style="color: #2F9A88;">{{from_email}}</strong>로 전송됩니다.
+            </p>
+            <p style="color: #9ca3af; font-size: 12px; margin: 0;">
+                찾아검진 예약 시스템 | 자동 발송 메일
+            </p>
+        </div>
     </div>
-    
-    <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
-    <p style="color: #666; font-size: 14px;"><em>이 이메일에 답장하시면 {{from_email}}로 전송됩니다.</em></p>
 </body>
 </html>
 ```
