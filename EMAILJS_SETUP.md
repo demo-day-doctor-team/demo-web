@@ -1,5 +1,6 @@
 # EmailJS 설정 가이드
 
+
 ## 1. EmailJS 계정 생성
 
 1. [EmailJS 웹사이트](https://www.emailjs.com/)에 접속
