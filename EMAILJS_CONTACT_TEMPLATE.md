@@ -7,6 +7,7 @@
 ```
 새로운 상담 요청이 접수되었습니다.
 
+
 담당자: {{from_name}}
 회사: {{from_company}}
 이메일: {{from_email}}
