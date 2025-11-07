@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin } from "lucide-react"
+햣import { Mail, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -22,11 +22,8 @@ export default function Footer() {
               액체생검 기반 방문형 건강검진 서비스. 집에서, 사무실에서, 원하는 곳 어디서나 간편하게 암 조기발견 검사를 받으세요.
             </p>
             <div className="flex space-x-4">
-              <a href="mailto:contact@chajagumjin.co" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
+              <a href="mailto:chajagumjin@gmail.com" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
                 <Mail />
-              </a>
-              <a href="tel:+82-2-1234-5678" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
-                <Phone />
               </a>
               <a href="#" className="text-gray-400 transition-colors hover:text-[#4BBEAC]" onMouseEnter={(e) => e.currentTarget.style.color = '#4BBEAC'} onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}>
                 <MapPin />
